@@ -1,0 +1,2 @@
+class CampaignSessionsController < ApplicationController
+end
