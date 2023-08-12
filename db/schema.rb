@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_12_014038) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_051136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_014038) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "campaign_options", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "description"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "campaign_sessions", force: :cascade do |t|
     t.bigint "campaign_id", null: false
     t.datetime "created_at", null: false
@@ -51,14 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_014038) do
 
   create_table "campaigns", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name"
-    t.string "location"
-    t.string "string"
-    t.string "description"
-    t.string "image_url"
-    t.string "act"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "campaign_option_id", null: false
+    t.index ["campaign_option_id"], name: "index_campaigns_on_campaign_option_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -103,6 +108,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_014038) do
     t.string "equipment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
+    t.string "weapons"
+    t.string "languages"
     t.index ["character_class_id"], name: "index_characters_on_character_class_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
@@ -171,6 +179,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_014038) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "campaign_sessions", "campaigns"
+  add_foreign_key "campaigns", "campaign_options"
   add_foreign_key "campaigns", "users"
   add_foreign_key "character_spells", "characters"
   add_foreign_key "character_spells", "spells"

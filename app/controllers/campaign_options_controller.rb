@@ -1,0 +1,2 @@
+class CampaignOptionsController < ApplicationController
+end
