@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: 'characters#index'
+  root to: 'pages#home'
   
   # users
   get '/users/my_campaigns', to: 'users#campaigns', as: 'my_campaigns'
