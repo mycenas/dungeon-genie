@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'campaigns#index'
-
+  
   # characters
   get '/characters/new', to: 'characters#new', as: 'new_characters'
   post '/characters', to: 'characters#create', as: 'characters'
