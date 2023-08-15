@@ -1,19 +1,33 @@
-<% if @characters.any? %>
-  <% @characters.each do |character| %>
-    <h3><%= character.name %></h3>
-    <ul class="no-bullets">
-      <li>Level: <%= character.level %></li>
-      <li>Race: <%= character.race.name %></li>
-      <li>Class: <%= character.character_class.name %></li>
-      <li>HP: <%= character.current_hp %>/<%= character.max_hp %></li>
-      <li>Armor Class: <%= character.armor_class %></li>
-      <li>Equipment: <%= character.equipment.join(', ') if character.equipment %></li>
-      <li>Gender: <%= character.gender.capitalize %></li>
-      <li>Weapons: <%= character.weapons.join(', ') if character.weapons %></li>
-      <li>Languages: <%= character.languages.join(', ') if character.languages %></li>
-    </ul>
-    <hr>
+<div class="character-card-container">
+  <% if @characters.any? %>
+    <% @characters.each do |character| %>
+      <div class="character-flip-card">
+        <div class="character-flip-card-inner">
+          <!-- Card Front -->
+          <div class="character-flip-card-front">
+          <figure>
+            <%= image_tag "the-dark-urge.png"%>
+            <figcaption><%= character.name %></figcaption>
+          </figure>
+          </div>
+          <!-- Card Back -->
+          <div class="character-flip-card-back">
+            <ul class="no-bullets bold-list">
+              <li>Level: <span class="interpolated"><%= character.level %></span></li>
+              <li>Race: <span class="interpolated"><%= character.race.name %></span></li>
+              <li>Class: <span class="interpolated"><%= character.character_class.name %></span></li>
+              <li>HP: <span class="interpolated"><%= character.current_hp %>/<%= character.max_hp %></span></li>
+              <li>Armor Class: <span class="interpolated"><%= character.armor_class %></span></li>
+              <li>Equipment: <span class="interpolated"><%= character.equipment.join(', ') if character.equipment %></span></li>
+              <li>Gender: <span class="interpolated"><%= character.gender.capitalize %></span></li>
+              <li>Weapons: <span class="interpolated"><%= character.weapons.join(', ') if character.weapons %></span></li>
+              <li>Languages: <span class="interpolated"><%= character.languages.join(', ') if character.languages %></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You currently have no characters.</p>
   <% end %>
-<% else %>
-  <p>You currently have no characters.</p>
-<% end %>
+</div>

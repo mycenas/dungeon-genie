@@ -68,10 +68,62 @@ if user_david
     max_hp: 10,
     current_hp: 10,
     armor_class: "Heavy Armor",
-    gender: "male",
+    gender: "Male",
     languages: ["Common", "Draconic"],
-    equipment: ["Heavy Armor", "Light Armor", "Medium Armor", "Shields"],
-    weapons: ["Martial Weapons", "Simple Weapons"]
+    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+    weapons: ["Greataxe", "Shield"]
+  )
+
+  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+  stats_values = [17, 14, 10, 12, 8, 14]
+
+  stats_names.each_with_index do |name, index|
+    stat = Stats.find_or_create_by(name: name)
+    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+  end
+end
+
+user_david = User.find_by(email: "david@dungeongenie.com")
+if user_david
+  character = Character.create!(
+    name: "Test Character",
+    user: user_david,
+    level: 1,
+    race_id: Race.where(name: "Dragonborn").first.id,
+    character_class_id: CharacterClass.where(name: "Fighter").first.id,
+    max_hp: 10,
+    current_hp: 10,
+    armor_class: "Heavy Armor",
+    gender: "Male",
+    languages: ["Common", "Draconic"],
+    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+    weapons: ["Greataxe", "Shield"]
+  )
+
+  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+  stats_values = [17, 14, 10, 12, 8, 14]
+
+  stats_names.each_with_index do |name, index|
+    stat = Stats.find_or_create_by(name: name)
+    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+  end
+end
+
+user_david = User.find_by(email: "david@dungeongenie.com")
+if user_david
+  character = Character.create!(
+    name: "Test Character",
+    user: user_david,
+    level: 1,
+    race_id: Race.where(name: "Dragonborn").first.id,
+    character_class_id: CharacterClass.where(name: "Fighter").first.id,
+    max_hp: 10,
+    current_hp: 10,
+    armor_class: "Heavy Armor",
+    gender: "Male",
+    languages: ["Common", "Draconic"],
+    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+    weapons: ["Greataxe", "Shield"]
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
