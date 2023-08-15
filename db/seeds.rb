@@ -45,8 +45,8 @@ ironbound_campaign = CampaignOption.create(name: "The Ironbound Prophecy", locat
 # Campaign Seeds
 
 User.all.each do |user|
-  sampled_campaign_options = CampaignOption.order("RANDOM()").limit(2)  # This will fetch 2 random campaign options
-  
+  sampled_campaign_options = CampaignOption.order("RANDOM()").limit(3)  # This will fetch 2 random campaign options
+
   sampled_campaign_options.each do |option|
     Campaign.create(
       user: user,

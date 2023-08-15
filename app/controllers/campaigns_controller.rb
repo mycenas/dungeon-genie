@@ -3,6 +3,9 @@ class CampaignsController < ApplicationController
   def my_campaigns
     @user = current_user
     @campaigns = @user.campaigns
+    @campaign_options = @campaigns.map do |campaign|
+      campaign.campaign_option
+    end
   end
 
   def index
