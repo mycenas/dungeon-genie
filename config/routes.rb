@@ -5,17 +5,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'pages#home'
-  
-  # users
-  get '/users/my_campaigns', to: 'users#campaigns', as: 'my_campaigns'
-  get '/users/my_characters', to: 'users#characters', as: 'my_characters'
 
   # characters
+  get '/my_characters', to: 'characters#my_characters', as: 'my_characters'
   get '/characters/new', to: 'characters#new', as: 'new_characters'
   post '/characters', to: 'characters#create', as: 'characters'
   get '/characters/:id', to: 'characters#show', as: 'character'
 
   #campaigns
+  get '/my_campaigns', to: 'campaigns#my_campaigns', as: 'my_campaigns'
   post '/campaigns', to: 'campaigns#new', as: 'new_campaign'
   get '/campaigns', to: 'campaigns#index'
   get '/campaigns/:id', to: 'campaigns#show', as: 'campaign'
