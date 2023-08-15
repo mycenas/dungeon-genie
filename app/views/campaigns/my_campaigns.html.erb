@@ -1,0 +1,13 @@
+<% if @campaign_options.any? %>
+  <% @campaign_options.each do |campaign| %>
+    <h3><%= campaign.name %></h3>
+    <ul class="no-bullets">
+      <li>Location: <%= campaign.location %></li>
+      <li>Description: <%= campaign.description %></li>
+      <li>Image: <%= campaign.image_url %></li>
+    </ul>
+    <hr>
+  <% end %>
+<% else %>
+  <p>You have not selected any campaigns</p>
+<% end %>
