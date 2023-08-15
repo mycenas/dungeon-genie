@@ -1,4 +1,10 @@
 class CharactersController < ApplicationController
+  before_action :authenticate_user!
+  
+  def my_characters
+    @user = current_user
+    @characters = @user.characters
+  end
 
   # GET /characters/new
   def new
