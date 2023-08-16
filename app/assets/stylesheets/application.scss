@@ -7,6 +7,37 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// Base styles
+body {
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+a:hover, a:active, a:focus {
+    color: lightgray;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.centered-image {
+    width: 500px;
+    height: 500px;
+}
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -16,4 +47,3 @@
 @import "components/forms";
 @import "components/charactercard";
 @import "components/lists";
-

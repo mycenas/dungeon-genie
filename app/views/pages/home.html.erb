@@ -2,15 +2,14 @@
 <html>
 <head>
   <title>DungeonGenie</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <h1>Welcome to DungeonGenie</h1>
-  </header>
+<div class="container home-container">
+  <%= image_tag("DG_D20.png", class: "home-image")%>
 
-  <footer>
+  <footer class="home-footer">
     <p>© <%= Date.today.year %> DungeonGenie. All rights reserved.</p>
   </footer>
 </div>
