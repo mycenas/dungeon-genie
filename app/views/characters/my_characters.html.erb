@@ -6,7 +6,7 @@
           <!-- Card Front -->
           <div class="character-flip-card-front">
           <figure>
-            <%= image_tag "the-dark-urge.png"%>
+            <%= image_tag(character.image_path) if character.image_path.present? %>
             <figcaption><%= character.name %></figcaption>
           </figure>
           </div>
