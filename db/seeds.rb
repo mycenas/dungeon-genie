@@ -57,6 +57,12 @@ end
 
 # Character Seeds
 
+def determine_image_path(race_name, class_name)
+  "#{race_name.downcase}_#{class_name.downcase}.png"
+end
+
+# David
+
 user_david = User.find_by(email: "david@dungeongenie.com")
 if user_david
   character = Character.create!(
@@ -71,7 +77,8 @@ if user_david
     gender: "Male",
     languages: ["Common", "Draconic"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Greataxe", "Shield"]
+    weapons: ["Greataxe", "Shield"],
+    image_path: determine_image_path("dragonborn", "fighter")
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -83,25 +90,28 @@ if user_david
   end
 end
 
-user_david = User.find_by(email: "david@dungeongenie.com")
-if user_david
+# Hieu
+
+user_hieu = User.find_by(email: "hieu@dungeongenie.com")
+if user_hieu
   character = Character.create!(
-    name: "Test Character",
-    user: user_david,
+    name: "Giwu",
+    user: user_hieu,
     level: 1,
-    race_id: Race.where(name: "Dragonborn").first.id,
-    character_class_id: CharacterClass.where(name: "Fighter").first.id,
-    max_hp: 10,
-    current_hp: 10,
+    race_id: Race.where(name: "Hill Dwarf").first.id,
+    character_class_id: CharacterClass.where(name: "Cleric").first.id,
+    max_hp: 12,
+    current_hp: 12,
     armor_class: "Heavy Armor",
     gender: "Male",
-    languages: ["Common", "Draconic"],
+    languages: ["Common", "Dwarvish", "Nerakese"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Greataxe", "Shield"]
+    weapons: ["Battleaxe", "Simple Weapons", "Warhammer"],
+    image_path: determine_image_path("Hilldwarf", "Cleric")
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [17, 14, 10, 12, 8, 14]
+  stats_values = [10, 8, 16, 15, 13, 13]
 
   stats_names.each_with_index do |name, index|
     stat = Stats.find_or_create_by(name: name)
@@ -109,25 +119,111 @@ if user_david
   end
 end
 
-user_david = User.find_by(email: "david@dungeongenie.com")
-if user_david
+# Brian
+
+user_brian = User.find_by(email: "brian@dungeongenie.com")
+if user_brian
   character = Character.create!(
-    name: "Test Character",
-    user: user_david,
+    name: "Galgadot",
+    user: user_brian,
     level: 1,
-    race_id: Race.where(name: "Dragonborn").first.id,
-    character_class_id: CharacterClass.where(name: "Fighter").first.id,
-    max_hp: 10,
-    current_hp: 10,
-    armor_class: "Heavy Armor",
-    gender: "Male",
-    languages: ["Common", "Draconic"],
+    race_id: Race.where(name: "Tiefling").first.id,
+    character_class_id: CharacterClass.where(name: "Warlock").first.id,
+    max_hp: 7,
+    current_hp: 7,
+    armor_class: "Light Armor",
+    gender: "Female",
+    languages: ["Common", "Infernal"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Greataxe", "Shield"]
+    weapons: ["Simple Weapons"],
+    image_path: determine_image_path("tiefling", "warlock")
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [17, 14, 10, 12, 8, 14]
+  stats_values = [13, 8, 8, 9, 11, 11]
+
+  stats_names.each_with_index do |name, index|
+    stat = Stats.find_or_create_by(name: name)
+    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+  end
+end
+
+# Marnie
+
+user_marnie = User.find_by(email: "marnie@dungeongenie.com")
+if user_marnie
+  character = Character.create!(
+    name: "Twig",
+    user: user_marnie,
+    level: 1,
+    race_id: Race.where(name: "Wood Elf").first.id,
+    character_class_id: CharacterClass.where(name: "Druid").first.id,
+    max_hp: 10,
+    current_hp: 10,
+    armor_class: "Medium Armor",
+    gender: "Female",
+    languages: ["Common", "Druidic", "Elvish"],
+    equipment: ["Herbalism Kit"],
+    weapons: ["Quarterstaff", "Shortbow", "Sling"],
+    image_path: determine_image_path("woodelf", "druid")
+  )
+
+  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+  stats_values = [8, 15, 14, 10, 16, 12]
+
+  stats_names.each_with_index do |name, index|
+    stat = Stats.find_or_create_by(name: name)
+    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+  end
+end
+
+user_marnie = User.find_by(email: "marnie@dungeongenie.com")
+if user_marnie
+  character = Character.create!(
+    name: "Giwu",
+    user: user_marnie,
+    level: 1,
+    race_id: Race.where(name: "Hill Dwarf").first.id,
+    character_class_id: CharacterClass.where(name: "Cleric").first.id,
+    max_hp: 12,
+    current_hp: 12,
+    armor_class: "Heavy Armor",
+    gender: "Male",
+    languages: ["Common", "Dwarvish", "Nerakese"],
+    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+    weapons: ["Battleaxe", "Simple Weapons", "Warhammer"],
+    image_path: determine_image_path("hilldwarf", "cleric")
+  )
+
+  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+  stats_values = [10, 8, 16, 15, 13, 13]
+
+  stats_names.each_with_index do |name, index|
+    stat = Stats.find_or_create_by(name: name)
+    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+  end
+end
+
+user_marnie = User.find_by(email: "marnie@dungeongenie.com")
+if user_marnie
+  character = Character.create!(
+    name: "Galgadot",
+    user: user_marnie,
+    level: 1,
+    race_id: Race.where(name: "Tiefling").first.id,
+    character_class_id: CharacterClass.where(name: "Warlock").first.id,
+    max_hp: 7,
+    current_hp: 7,
+    armor_class: "Light Armor",
+    gender: "Female",
+    languages: ["Common", "Infernal"],
+    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+    weapons: ["Simple Weapons"],
+    image_path: determine_image_path("tiefling", "warlock")
+  )
+
+  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+  stats_values = [13, 8, 8, 9, 11, 11]
 
   stats_names.each_with_index do |name, index|
     stat = Stats.find_or_create_by(name: name)
