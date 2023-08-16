@@ -78,7 +78,7 @@ if user_david
     languages: ["Common", "Draconic"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
     weapons: ["Greataxe", "Shield"],
-    image_path: determine_image_path("dragonborn", "fighter")
+    image_path: "dragonborn_fighter.png"
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -107,7 +107,7 @@ if user_hieu
     languages: ["Common", "Dwarvish", "Nerakese"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
     weapons: ["Battleaxe", "Simple Weapons", "Warhammer"],
-    image_path: determine_image_path("Hilldwarf", "Cleric")
+    image_path: "hilldwarf_cleric.png"
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -136,7 +136,7 @@ if user_brian
     languages: ["Common", "Infernal"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
     weapons: ["Simple Weapons"],
-    image_path: determine_image_path("tiefling", "warlock")
+    image_path: "tiefling_warlock.png"
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -165,7 +165,7 @@ if user_marnie
     languages: ["Common", "Druidic", "Elvish"],
     equipment: ["Herbalism Kit"],
     weapons: ["Quarterstaff", "Shortbow", "Sling"],
-    image_path: determine_image_path("woodelf", "druid")
+    image_path: "woodelf_druid.png"
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -192,7 +192,7 @@ if user_marnie
     languages: ["Common", "Dwarvish", "Nerakese"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
     weapons: ["Battleaxe", "Simple Weapons", "Warhammer"],
-    image_path: determine_image_path("hilldwarf", "cleric")
+    image_path: "woodelf_druid.png"
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
@@ -219,7 +219,7 @@ if user_marnie
     languages: ["Common", "Infernal"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
     weapons: ["Simple Weapons"],
-    image_path: determine_image_path("tiefling", "warlock")
+    image_path: "tiefling_warlock.png"
   )
 
   stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
