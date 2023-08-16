@@ -11,7 +11,7 @@
           </figure>
           </div>
           <!-- Card Back -->
-          <div class="character-flip-card-back">
+          <div class="character-flip-card-back" style="background-image: url(<%= asset_path(character.image_path) if character.image_path.present? %>);">
             <ul class="no-bullets bold-list">
               <li>Level: <span class="interpolated"><%= character.level %></span></li>
               <li>Race: <span class="interpolated"><%= character.race.name %></span></li>
@@ -31,3 +31,4 @@
     <p>You currently have no characters.</p>
   <% end %>
 </div>
+<button class="circle-add-btn">+</button>
