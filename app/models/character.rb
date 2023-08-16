@@ -18,7 +18,7 @@ class Character < ApplicationRecord
             "hilldwarf_cleric" => "hilldwarf_cleric.png",
             "woodelf_druid" => "woodelf_druid.png"
         }
-        key = "#{self.race.name.downcase}_#{self.character_class.name.downcase}"
+        key = "#{self.race.name.downcase.gsub(' ', '')}_#{self.character_class.name.downcase}"
         self.image_path = image_lookup[key]
     end
 
