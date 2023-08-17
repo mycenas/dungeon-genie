@@ -1,13 +1,27 @@
-<% if @campaign_options.any? %>
-  <% @campaign_options.each do |campaign| %>
-    <h3><%= campaign.name %></h3>
-    <ul class="no-bullets">
-      <li>Location: <%= campaign.location %></li>
-      <li>Description: <%= campaign.description %></li>
-      <li>Image: <%= campaign.image_url %></li>
-    </ul>
-    <hr>
+<div class="campaign-card-container">
+  <% if @campaign_options.any? %>
+      <% @campaign_options.each do |campaign| %>
+      <div class="campaign-flip-card">
+        <div class="campaign-flip-card-inner">
+          <!-- Card Front -->
+          <div class="campaign-flip-card-front">
+          <figure>
+            <%= image_tag campaign.image_url %>
+            <figcaption><%= campaign.name %></figcaption>
+          </figure>
+          </div>
+          <!-- Card Back -->
+            <div class="character-flip-card-back" style="background-image: url(campaign.image_url);">
+            <ul class="no-bullets bold-list">
+              <li>Location: <span class="interpolated"> <%= campaign.location %></span></li>
+              <li>Description: <span class="interpolated"> <%= campaign.description %></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You currently have no campaigns.</p>
   <% end %>
-<% else %>
-  <p>You have not selected any campaigns</p>
-<% end %>
+</div>
+<button class="circle-add-btn">+</button>
