@@ -29,6 +29,42 @@
           <%= f.select :character_class_id, CharacterClass.all.collect { |c| [c.name, c.id] } %>
         </div>
 
+            <!-- Cleric Equipment -->
+    <div class="equipment-options" data-class="cleric">
+        <%= f.label :equipment, "Equipment (Cleric)" %>
+        <%= f.select :equipment, ["A mace", "Warhammer"] %>
+        <%= f.select :equipment, ["Scale mail", "Leather armor", "Chain mail"] %>
+        <%= f.select :equipment, ["A light crossbow and 20 bolts", "Any simple weapon"] %>
+        <%= f.select :equipment, ["A priest's pack", "An explorer's pack"] %>
+        <%= f.select :equipment, ["Shield and a holy symbol"]  %>
+    </div>
+
+    <!-- Druid Equipment -->
+    <div class="equipment-options" data-class="druid">
+        <%= f.label :equipment, "Equipment (Druid)" %>
+        <%= f.select :equipment, ["A wooden shield", "Any simple weapon"] %>
+        <%= f.select :equipment, ["A scimitar", "Any simple melee weapon"] %>
+        <%= f.select :equipment, ["Leather armor, an explorer's pack, and a druidic focus"] %> 
+    </div>
+
+    <!-- Fighter Equipment -->
+    <div class="equipment-options" data-class="fighter">
+        <%= f.label :equipment, "Equipment (Fighter)" %>
+        <%= f.select :equipment, ["Chain mail", "Leather armor, longbow, and 20 arrows"] %>
+        <%= f.select :equipment, ["A martial weapon and a shield", "Two martial weapons"] %>
+        <%= f.select :equipment, ["A light crossbow and 20 bolts", "Two handaxes"] %>
+        <%= f.select :equipment, ["A dungeoneer's pack", "An explorer's pack"] %>
+    </div>
+
+    <!-- Warlock Equipment -->
+    <div class="equipment-options" data-class="warlock">
+        <%= f.label :equipment, "Equipment (Warlock)" %>
+        <%= f.select :equipment, ["A light crossbow and 20 bolts", "Any simple weapon"] %>
+        <%= f.select :equipment, ["A component pouch", "An arcane focus"] %>
+        <%= f.select :equipment, ["A scholar's pack", "A dungeoneer's pack"] %>
+        <%= f.select :equipment, ["Leather armor, any simple weapon, and two daggers"] %>
+    </div>
+
         <div class="form-field">
           <%= f.label :max_hp %>
           <%= f.number_field :max_hp %>
@@ -37,11 +73,6 @@
         <div class="form-field">
           <%= f.label :armor_class %>
           <%= f.text_field :armor_class %>
-        </div>
-
-        <div class="form-field">
-          <%= f.label :equipment %>
-          <%= f.text_area :equipment, rows: 3 %>
         </div>
 
         <div class="form-field">
@@ -66,3 +97,23 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const classDropdown = document.querySelector('[name="character[character_class_id]"]');
+    const equipmentGroups = document.querySelectorAll('.equipment-options');
+
+    classDropdown.addEventListener('change', function() {
+        // Hide all equipment groups
+        equipmentGroups.forEach(group => group.style.display = 'none');
+
+        // Show the equipment group for the selected class
+        const selectedClass = classDropdown.options[classDropdown.selectedIndex].text.toLowerCase();
+        const targetGroup = document.querySelector(`.equipment-options[data-class="${selectedClass}"]`);
+        if (targetGroup) {
+            targetGroup.style.display = 'block';
+        }
+    });
+});
+
+</script>

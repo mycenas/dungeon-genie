@@ -1,3 +1,4 @@
+/* New character form */
 .new-character-container {
     max-width: 800px;
     width: 100%;
@@ -45,4 +46,8 @@
   width: 100%;
   overflow-y: auto;
   padding: 10px;
+}
+
+.equipment-options {
+    display: none;
 }
