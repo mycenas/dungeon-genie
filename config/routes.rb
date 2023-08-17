@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # characters
   get '/my_characters', to: 'characters#my_characters', as: 'my_characters'
-  get '/characters/new', to: 'characters#new', as: 'new_characters'
+  get '/characters/new', to: 'characters#new', as: 'new_character'
   post '/characters', to: 'characters#create', as: 'characters'
   get '/characters/:id', to: 'characters#show', as: 'character'
 
