@@ -8,7 +8,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
-    @character = Character.new
+    @character = Character.new(level: 1)
   end
 
   # POST /characters
@@ -16,7 +16,6 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @character.user = current_user
     if @character.save
-      # redirect to the character show page
       redirect_to character_path(@character), notice: "#{@character.name} was successfully created."
     else
       render :new
