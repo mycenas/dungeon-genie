@@ -4,7 +4,7 @@ class CampaignsController < ApplicationController
     @user = current_user
     @campaigns = @user.campaigns
     @campaign_options = @campaigns.map do |campaign|
-      campaign.campaign_option
+    campaign.campaign_option
     end
   end
 
