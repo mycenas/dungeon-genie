@@ -1,5 +1,6 @@
 class Character < ApplicationRecord
   before_create :set_image_path
+  before_create :set_current_hp
   belongs_to :user
   belongs_to :race
   belongs_to :character_class
@@ -22,4 +23,8 @@ class Character < ApplicationRecord
         self.image_path = image_lookup[key]
     end
 
+  def set_current_hp
+    self.current_hp = self.max_hp
+  end
+  
 end

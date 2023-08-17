@@ -1,0 +1,68 @@
+<div class="main-content">
+  <div class="new-character-container">
+    <div class="new-character-form-content">
+      <%= form_with(model: @character, local: true, html: { class: "new-character-form" }) do |f| %>
+
+        <% if @character.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+            <ul>
+            <% @character.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :race %>
+          <%= f.select :race_id, Race.all.collect { |r| [r.name, r.id] } %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :character_class %>
+          <%= f.select :character_class_id, CharacterClass.all.collect { |c| [c.name, c.id] } %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :max_hp %>
+          <%= f.number_field :max_hp %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :armor_class %>
+          <%= f.text_field :armor_class %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :equipment %>
+          <%= f.text_area :equipment, rows: 3 %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :gender %>
+          <%= f.select :gender, ["Male", "Female", "Other"] %>
+        </div>
+      
+        <div class="form-field">
+          <%= f.label :weapons %>
+          <%= f.text_area :weapons, rows: 3 %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :languages %>
+          <%= f.text_area :languages, rows: 3 %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
