@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def my_characters
     @user = current_user
     @characters = @user.characters
@@ -16,7 +16,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @character.user = current_user
     if @character.save
-      redirect_to character_path(@character), notice: "#{@character.name} was successfully created."
+      redirect_to my_characters_path, notice: "#{@character.name} was successfully created."
     else
       render :new
     end
