@@ -30,33 +30,8 @@
         </div>
 
         <div class="form-field">
-          <%= f.label :max_hp %>
-          <%= f.number_field :max_hp %>
-        </div>
-
-        <div class="form-field">
-          <%= f.label :armor_class %>
-          <%= f.text_field :armor_class %>
-        </div>
-
-        <div class="form-field">
-          <%= f.label :equipment %>
-          <%= f.text_area :equipment, rows: 3 %>
-        </div>
-
-        <div class="form-field">
           <%= f.label :gender %>
-          <%= f.select :gender, ["Male", "Female", "Other"] %>
-        </div>
-      
-        <div class="form-field">
-          <%= f.label :weapons %>
-          <%= f.text_area :weapons, rows: 3 %>
-        </div>
-
-        <div class="form-field">
-          <%= f.label :languages %>
-          <%= f.text_area :languages, rows: 3 %>
+          <%= f.select :gender, ['Female', 'Male', 'Non-Binary', 'Other'] %>
         </div>
 
         <div class="actions">

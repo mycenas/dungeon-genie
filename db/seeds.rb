@@ -45,7 +45,7 @@ ironbound_campaign = CampaignOption.create(name: "The Ironbound Prophecy", locat
 # Campaign Seeds
 
 User.all.each do |user|
-  sampled_campaign_options = CampaignOption.order("RANDOM()").limit(3)  # This will fetch 2 random campaign options
+  sampled_campaign_options = CampaignOption.order("RANDOM()").limit(3)  # This will fetch 3 random campaign options
 
   sampled_campaign_options.each do |option|
     Campaign.create(
@@ -77,7 +77,6 @@ if user_david
     gender: "Male",
     languages: ["Common", "Draconic"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Greataxe", "Shield"],
     image_path: "dragonborn_fighter.png"
   )
 
@@ -106,7 +105,6 @@ if user_hieu
     gender: "Male",
     languages: ["Common", "Dwarvish", "Nerakese"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Battleaxe", "Simple Weapons", "Warhammer"],
     image_path: "hilldwarf_cleric.png"
   )
 
@@ -135,7 +133,6 @@ if user_brian
     gender: "Female",
     languages: ["Common", "Infernal"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Simple Weapons"],
     image_path: "tiefling_warlock.png"
   )
 
@@ -164,7 +161,6 @@ if user_marnie
     gender: "Female",
     languages: ["Common", "Druidic", "Elvish"],
     equipment: ["Herbalism Kit"],
-    weapons: ["Quarterstaff", "Shortbow", "Sling"],
     image_path: "woodelf_druid.png"
   )
 
@@ -191,7 +187,6 @@ if user_marnie
     gender: "Male",
     languages: ["Common", "Dwarvish", "Nerakese"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Battleaxe", "Simple Weapons", "Warhammer"],
     image_path: "woodelf_druid.png"
   )
 
@@ -218,7 +213,6 @@ if user_marnie
     gender: "Female",
     languages: ["Common", "Infernal"],
     equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    weapons: ["Simple Weapons"],
     image_path: "tiefling_warlock.png"
   )
 

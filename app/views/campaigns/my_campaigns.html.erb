@@ -41,8 +41,9 @@
 
       <div class="footer-button-container">
         <div class="box-2">
-          <div class="create_btn btn-two">
-          <span>CREATE A NEW CAMPAIGN</span>
+          <%link_to campaign_options_path, class="create_btn btn-two" do %>
+            <span>CREATE A NEW CAMPAIGN</span>
+          <% end %>
         </div>
       </div>
     </div>
@@ -51,3 +52,4 @@
 
 </body>
 </html>
+
