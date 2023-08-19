@@ -2,7 +2,7 @@
   <head>
       <style>
           .campaign-card-container{
-              animation: fadeInAnimation ease 3s;
+              animation: fadeInAnimation ease 1s;
               animation-iteration-count: 1;
               animation-fill-mode: forwards;
           }
@@ -41,9 +41,9 @@
 
       <div class="footer-button-container">
         <div class="box-2">
-          <%link_to campaign_options_path, class="create_btn btn-two" do %>
-            <span>CREATE A NEW CAMPAIGN</span>
-          <% end %>
+            <div class="create_btn btn-two" onclick="window.location='<%= url_for(campaign_options_path) %>'" style="cursor: pointer;">
+                <span>CREATE A NEW CAMPAIGN</span>
+            </div>
         </div>
       </div>
     </div>
@@ -52,4 +52,3 @@
 
 </body>
 </html>
-
