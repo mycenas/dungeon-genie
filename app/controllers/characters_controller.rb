@@ -8,7 +8,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
-    @character = Character.new(level: 1)
+    @character = Character.new
   end
 
   # POST /characters
@@ -18,6 +18,7 @@ class CharactersController < ApplicationController
 
     if @character.valid?
       set_character_stats(@character)
+    end
 
     if @character.save
       redirect_to my_characters_path, notice: "#{@character.name} was successfully created."
@@ -34,11 +35,11 @@ class CharactersController < ApplicationController
   private
 
   def set_character_stats(character)
-    stats_values = character.send (:stats_defaults)
+    stats_values = character.send(:stats_defaults)
 
     stats_values.each do |name, value|
       stat = Stats.find_or_create_by(name: name)
-      CharacterStats.create!(character: character, stats_id: stat.id, value: value )
+      CharacterStats.create!(character: character, stats_id: stat.id, value: value)
     end
   end
 

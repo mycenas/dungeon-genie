@@ -2,6 +2,7 @@ class Character < ApplicationRecord
   before_validation :set_image_path, on: :create
   before_validation :set_current_hp, on: :create
   before_validation :set_class_defaults, on: :create
+  before_validation :set_default_level, on: :create
   belongs_to :user
   belongs_to :race
   belongs_to :character_class
@@ -119,4 +120,7 @@ class Character < ApplicationRecord
     self.current_hp = self.max_hp
   end
 
+  def set_default_level
+    self.level ||= 1
+  end
 end
