@@ -49,6 +49,31 @@ class Character < ApplicationRecord
       self.armor_class = "Heavy Armor"
       self.equipment = ["Chain Mail", "Shield", "Mace", "Holy Symbol", "Adventurer's Pack"]
       self.languages = ["Common", "Celestial"]
+
+    when 'warlock'
+      self.max_hp = 9
+      self.armor_class = "Medium Armor"
+      self.equipment = ["Leather Armor", "Dagger", "Spellbook", "Component Pouch", "Adventurer's Pack"]
+      self.languages = ["Common", "Infernal"]
+
+    when 'druid'
+      self.max_hp = 9
+      self.armor_class = "Medium Armor"
+      self.equipment = ["Hide Armor", "Wooden Shield", "Scimitar", "Druidic Focus", "Adventurer's Pack"]
+      self.languages = ["Common", "Elvish", "Druidic"]
+
+    when 'fighter'
+      self.max_hp = 12
+      self.armor_class = "Heavy Armor"
+      self.equipment = ["Chain Mail", "Longsword", "Shield", "Crossbow", "Adventurer's Pack"]
+      self.languages = ["Common", "Dwarvish"]
+    end
+  end
+
+  def stats_defaults
+    case self.character_class.name.downcase
+
+    when 'cleric'
       stats_values = {
         "Strength" => 12,
         "Dexterity" => 10,
@@ -59,10 +84,6 @@ class Character < ApplicationRecord
       }
 
     when 'warlock'
-      self.max_hp = 9
-      self.armor_class = "Medium Armor"
-      self.equipment = ["Leather Armor", "Dagger", "Spellbook", "Component Pouch", "Adventurer's Pack"]
-      self.languages = ["Common", "Infernal"]
       stats_values = {
         "Strength" => 8,
         "Dexterity" => 12,
@@ -73,10 +94,6 @@ class Character < ApplicationRecord
       }
 
     when 'druid'
-      self.max_hp = 9
-      self.armor_class = "Medium Armor"
-      self.equipment = ["Hide Armor", "Wooden Shield", "Scimitar", "Druidic Focus", "Adventurer's Pack"]
-      self.languages = ["Common", "Elvish", "Druidic"]
       stats_values = {
         "Strength" => 10,
         "Dexterity" => 12,
@@ -87,10 +104,6 @@ class Character < ApplicationRecord
       }
 
     when 'fighter'
-      self.max_hp = 12
-      self.armor_class = "Heavy Armor"
-      self.equipment = ["Chain Mail", "Longsword", "Shield", "Crossbow", "Adventurer's Pack"]
-      self.languages = ["Common", "Dwarvish"]
       stats_values = {
         "Strength" => 16,
         "Dexterity" => 13,
@@ -99,11 +112,6 @@ class Character < ApplicationRecord
         "Wisdom" => 11,
         "Charisma" => 8
       }
-    end
-
-    stats_values.each do |name, value|
-      stat = Stats.find_or_create_by(name: name)
-      CharacterStats.create!(character: self, stats_id: stat.id, value: value)
     end
   end
 
