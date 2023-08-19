@@ -1,31 +1,30 @@
 .circle-add-btn {
-    width: 60px;
-    height: 60px;
-    margin-left: 30px;
-    border-radius: 50%;
-    background-color: #82be7c;
-    color: white;
-    font-size: 32px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: 0 2px 5px #000000;
-    transition: background-color 0.3s;
+  width: 60px;
+  height: 60px;
+  margin-left: 30px;
+  border-radius: 50%;
+  background-color: #82be7c;
+  color: white;
+  font-size: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px #000000;
+  transition: background-color 0.3s;
 }
 
 .circle-add-btn:hover {
-    background-color: #598056;
+  background-color: #598056;
 }
 
 // Create a campaign button
 .box-2 {
   backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.75);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
   position: absolute;
-  bottom: 200PX;
+  bottom: 200px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -35,7 +34,6 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.75);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
   line-height: 50px;
   height: 50px;
   text-align: center;
@@ -48,11 +46,11 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.75);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  color: #FFF;
+  color: #fff;
   transition: all 0.5s;
   position: relative;
 }
+
 .btn-two span {
   z-index: 2;
   display: block;
@@ -61,7 +59,7 @@
   height: 100%;
 }
 .btn-two::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -76,7 +74,7 @@
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .btn-two::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -92,11 +90,11 @@
 }
 .btn-two:hover::before {
   transform: rotate(-45deg);
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255, 255, 255, 0);
 }
 .btn-two:hover::after {
   transform: rotate(45deg);
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .footer-button-container {
