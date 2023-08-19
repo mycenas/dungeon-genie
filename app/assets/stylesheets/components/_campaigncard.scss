@@ -8,28 +8,20 @@
 
 /* campaign cards*/
 .campaign-flip-card {
-  width: 450px;
-  height: 665px;
+  width: 435px;
+  height: 300px;
   margin: 40px;
   perspective: 1000px;
   border-radius: 15px;
   overflow: visible;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.campaign-flip-card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: 0.6s;
-  perspective: 1500px;
-  border-radius: 15px;
-  overflow: visible;
-}
-
-.campaign-flip-card:hover .campaign-flip-card-inner {
-  transform: rotateY(180deg);
-}
+// .campaign-flip-card:hover .campaign-flip-card-inner {
+//   transform: rotateY(180deg);
+// }
 
 .campaign-flip-card-front, .campaign-flip-card-back {
   width: 100%;
@@ -59,27 +51,6 @@
   border-radius: 15px;
 }
 
-.campaign-flip-card-back {
-  transform: rotateY(180deg);
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.6);
-  background-blend-mode: overlay;
-  backdrop-filter: blur(5px);
-  border-radius: 15px;
-  opacity: 0.8;
-}
-
-.campaign-flip-card-back ul {
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.campaign-flip-card-back ul li {
-  padding: 5px 0;
-  font-size: 20px;
-  color: #000000;
-}
-
 figure {
   position: relative;
   width: 100%;
@@ -94,14 +65,14 @@ figure {
   left: 0;
   width: 100%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #443e65e0, rgba(255, 255, 255, 0));
   color: white;
-  font-size: 32px;
+  font-size: 20px;
   z-index: 2;
   text-align: center;
   padding: 5px 10px;
   border-radius: 0;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
 }
