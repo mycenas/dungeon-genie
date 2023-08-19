@@ -24,4 +24,6 @@
     <p>You currently have no campaigns.</p>
   <% end %>
 </div>
-<button class="circle-add-btn">+</button>
+<%= link_to campaign_options_path, class: "circle-add-btn-link" do %>
+  <button class="circle-add-btn">+</button>
+<% end %>
