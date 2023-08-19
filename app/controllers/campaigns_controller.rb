@@ -8,15 +8,11 @@ class CampaignsController < ApplicationController
     end
   end
 
-  def index
-    @campaigns = CampaignOptions.all
-  end
-
   # def new
   #   @campaign = Campaign.new
   # end
 
-  def create
+  def new
     @option = CampaignOption.find(params[:id])
     @campaign = Campaign.new
     @campaign.user = current_user
@@ -36,6 +32,6 @@ class CampaignsController < ApplicationController
   private
 
   def campaign_params
-    params.require(:campaign).permit(:user, :name, :location, :description, :image_url)
+    params.require(:campaign).permit(:user, :name, :location, :description,)
   end
 end
