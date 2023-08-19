@@ -1,27 +1,53 @@
-<div class="campaign-card-container">
-  <% if @campaign_options.any? %>
-      <% @campaign_options.each do |campaign| %>
-      <div class="campaign-flip-card">
-        <div class="campaign-flip-card-inner">
-          <!-- Card Front -->
-          <div class="campaign-flip-card-front">
-          <figure>
-            <%= image_tag campaign.image_url %>
-            <figcaption><%= campaign.name %></figcaption>
-          </figure>
-          </div>
-          <!-- Card Back -->
-            <div class="character-flip-card-back" style="background-image: url(campaign.image_url);">
-            <ul class="no-bullets bold-list">
-              <li>Location: <span class="interpolated"> <%= campaign.location %></span></li>
-              <li>Description: <span class="interpolated"> <%= campaign.description %></span></li>
-            </ul>
+<html>
+  <head>
+      <style>
+          .campaign-card-container{
+              animation: fadeInAnimation ease 3s;
+              animation-iteration-count: 1;
+              animation-fill-mode: forwards;
+          }
+          @keyframes fadeInAnimation {
+              0% {
+                  opacity: 0;
+              }
+              100% {
+                  opacity: 1;
+              }
+          }
+      </style>
+  </head>
+
+  <body>
+    <div class="mycampaigns-container">
+      <div class="campaign-card-container">
+        <% if @campaign_options.any? %>
+            <% @campaign_options.each do |campaign| %>
+            <div class="campaign-flip-card">
+              <div class="campaign-flip-card-inner">
+                <!-- Card Front -->
+                <div class="campaign-flip-card-front">
+                <figure>
+                  <%= image_tag campaign.image_url %>
+                  <figcaption><%= campaign.name %></figcaption>
+                </figure>
+                </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>You currently have no campaigns.</p>
+        <% end %>
+        </div>
+
+        <div class="footer-button-container">
+          <div class="box-2">
+            <div class="create_btn btn-two">
+            <span>CREATE A NEW CAMPAIGN</span>
           </div>
         </div>
       </div>
-    <% end %>
-  <% else %>
-    <p>You currently have no campaigns.</p>
-  <% end %>
-</div>
-<button class="circle-add-btn">+</button>
+    </div>
+
+  </body>
+</html>
