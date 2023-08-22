@@ -1,5 +1,5 @@
 class CampaignOptionsController < ApplicationController
   def index
-    @campaigns = CampaignOption.all
+    @campaign_options = CampaignOption.all
   end
 end
