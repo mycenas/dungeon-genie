@@ -12,8 +12,8 @@ class CampaignsController < ApplicationController
   #   @campaign = Campaign.new
   # end
 
-  def new
-    @option = CampaignOption.find(params[:id])
+  def create
+    @option = CampaignOption.find(params[:campaign_id])
     @campaign = Campaign.new
     @campaign.user = current_user
     @campaign.campaign_option = @option
@@ -26,7 +26,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = CampaignOption.find(params[:id])
+    @campaign = Campaign.find(params[:id])
   end
 
   private
