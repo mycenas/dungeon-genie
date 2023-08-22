@@ -14,12 +14,11 @@ Rails.application.routes.draw do
 
   #campaigns
   get '/my_campaigns', to: 'campaigns#my_campaigns', as: 'my_campaigns'
-  post '/campaigns/new', to: 'campaigns#new', as: 'new_campaign'
+  post '/campaigns', to: 'campaigns#create', as: 'new_campaign'
   get '/campaigns/:id', to: 'campaigns#show', as: 'campaign'
 
   #campaign_options
   get '/campaign_options', to: 'campaign_options#index', as: 'campaign_options'
-
   # #invitations
   # post 'campaigns/:campaign_id/invitations', to: 'campaigns#create', as: 'invitations'
   # post '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
