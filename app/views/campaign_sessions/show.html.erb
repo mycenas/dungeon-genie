@@ -1,0 +1,13 @@
+<h1>Session for <%= @campaign.name %></h1>
+
+<div id="chat-window">
+  <% @messages.each do |message| %>
+    <p><strong><%= message.user.name %>:</strong> <%= message.content %></p>
+  <% end %>
+</div>
+
+<%= form_for :message, url: messages_path do |f| %>
+  <%= f.hidden_field :campaign_session_id, value: @campaign_session.id %>
+  <%= f.text_area :content, placeholder: "Type your message..." %>
+  <%= f.submit "Send" %>
+<% end %>
