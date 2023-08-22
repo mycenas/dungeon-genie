@@ -21,11 +21,11 @@ Rails.application.routes.draw do
   get '/campaign_options', to: 'campaign_options#index', as: 'campaign_options'
 
   # campaign_sessions within campaigns
-  get '/campaigns/:campaign_id/sessions/new', to: 'campaign_sessions#new', as: 'new_campaign_session'
-  post '/campaigns/:campaign_id/sessions', to: 'campaign_sessions#create', as: 'campaign_sessions'
-  get '/campaigns/:campaign_id/sessions/:id', to: 'campaign_sessions#show', as: 'campaign_session'
+  post '/campaigns/:campaign_id/campaign_sessions', to: 'campaign_sessions#create', as: 'campaign_sessions'
+  get '/campaigns/:campaign_id/campaign_sessions/:id', to: 'campaign_sessions#show', as: 'campaign_session'
 
-  # #invitations
+
+  #invitations
   # post 'campaigns/:campaign_id/invitations', to: 'campaigns#create', as: 'invitations'
   # post '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
   # post '/invitations/:id/decline', to: 'invitations#decline', as: 'decline_invitation'
