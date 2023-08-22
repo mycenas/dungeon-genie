@@ -20,14 +20,14 @@ Rails.application.routes.draw do
   #campaign_options
   get '/campaign_options', to: 'campaign_options#index', as: 'campaign_options'
 
+  # campaign_sessions within campaigns
+  get '/campaigns/:campaign_id/sessions/new', to: 'campaign_sessions#new', as: 'new_campaign_session'
+  post '/campaigns/:campaign_id/sessions', to: 'campaign_sessions#create', as: 'campaign_sessions'
+  get '/campaigns/:campaign_id/sessions/:id', to: 'campaign_sessions#show', as: 'campaign_session'
+
   # #invitations
   # post 'campaigns/:campaign_id/invitations', to: 'campaigns#create', as: 'invitations'
   # post '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
   # post '/invitations/:id/decline', to: 'invitations#decline', as: 'decline_invitation'
 
-  # #campaign_session
-  # post '/campaigns/:campaign_id/sessions', to: 'sessions#create', as: 'new_session'
-  # post '/campaign_sessions/:session_id/join', to: 'campaign_session#join', as: 'join_campaign'
-  # post '/campaign_sessions/:id/save', to: 'sessions#update', as: 'save_session'
-  # get '/campaign_sessions/:id', to: 'sessions#show', as: 'session'
 end
