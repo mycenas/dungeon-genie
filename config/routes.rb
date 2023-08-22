@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   #campaigns
   get '/my_campaigns', to: 'campaigns#my_campaigns', as: 'my_campaigns'
-  post '/campaigns/new', to: 'campaigns#new', as: 'new_campaign'
+  post '/campaigns', to: 'campaigns#create', as: 'new_campaign'
   get '/campaigns/:id', to: 'campaigns#show', as: 'campaign'
 
   #campaign_options
