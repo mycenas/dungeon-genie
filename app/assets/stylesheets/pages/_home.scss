@@ -1,1 +1,45 @@
 // Specific CSS for your home-page
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsla(1, 0%, 0%, 0.97);
+  background-image: radial-gradient(
+      at 99% 11%,
+      hsla(286, 75%, 11%, 0.48) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 46% 97%, hsla(302, 48%, 18%, 0.55) 0px, transparent 50%),
+    radial-gradient(at 48% 42%, hsla(214, 37%, 35%, 0) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 56%, 18%, 0.69) 0px, transparent 50%),
+    radial-gradient(at 76% 86%, hsla(264, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 17% 43%, hsla(263, 71%, 14%, 0.58) 0px, transparent 50%),
+    radial-gradient(at 3% 19%, hsla(200, 0%, 0%, 0.73) 0px, transparent 50%);
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.home-image {
+  width: 800px;
+  height: 800px;
+  display: block;
+}
+
+.home-footer {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #1a1a1a;
+}
