@@ -6,6 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+.parcel-cache
+.cache/
+dist/
 
 # Ignore all logfiles and tempfiles.
 /log/*
