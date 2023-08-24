@@ -1,25 +1,54 @@
-<div class="campaign-card-container">
-  <% if @campaign_options.any? %>
-    <% @campaign_options.each do |campaign| %>
-       <div class="campaign-card">
-        <div class="face face1">
-          <figure>
-            <div class="img-container">
-              <%= image_tag campaign.image_url %>
+<html>
+  <head>
+      <style>
+          .campaign-card-container{
+              animation: fadeInAnimation ease 1s;
+              animation-iteration-count: 1;
+              animation-fill-mode: forwards;
+          }
+          @keyframes fadeInAnimation {
+              0% {
+                  opacity: 0;
+              }
+              100% {
+                  opacity: 1;
+              }
+          }
+      </style>
+  </head>
+
+<body>
+  <div class="mycampaigns-container">
+    <div class="campaign-card-container">
+      <% if @campaign_options.any? %>
+          <% @campaign_options.each do |campaign| %>
+          <div class="campaign-flip-card">
+            <div class="campaign-flip-card-inner">
+              <!-- Card Front -->
+              <div class="campaign-flip-card-front">
+              <figure>
+                <%= image_tag campaign.image_url %>
+                <figcaption><%= campaign.name %></figcaption>
+              </figure>
+              </div>
             </div>
-            <figcaption><%= campaign.name %></figcaption>
-          </figure>
-        </div>
-        
-        <div class="face face2">
-          <div class="campaign-content">
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?</p>
-            <a href="#" type="button">Read More</a>
           </div>
+        <% end %>
+      <% else %>
+        <p>You currently have no campaigns.</p>
+      <% end %>
+      </div>
+
+      <div class="footer-button-container">
+        <div class="box-2">
+            <div class="create_btn btn-two" onclick="window.location='<%= url_for(campaign_options_path) %>'" style="cursor: pointer;">
+                <span>CREATE A NEW CAMPAIGN</span>
+            </div>
         </div>
       </div>
-    <% end %>
-  <% else %>
-    <p>You currently have no campaigns.</p>
-  <% end %>
-</div>
+    </div>
+  </div>
+
+
+</body>
+</html>
