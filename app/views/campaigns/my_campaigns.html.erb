@@ -1,0 +1,25 @@
+<div class="campaign-card-container">
+  <% if @campaign_options.any? %>
+    <% @campaign_options.each do |campaign| %>
+       <div class="campaign-card">
+        <div class="face face1">
+          <figure>
+            <div class="img-container">
+              <%= image_tag campaign.image_url %>
+            </div>
+            <figcaption><%= campaign.name %></figcaption>
+          </figure>
+        </div>
+        
+        <div class="face face2">
+          <div class="campaign-content">
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?</p>
+            <a href="#" type="button">Read More</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You currently have no campaigns.</p>
+  <% end %>
+</div>

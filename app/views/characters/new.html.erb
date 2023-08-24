@@ -1,0 +1,43 @@
+<div class="main-content">
+  <div class="new-character-container">
+    <div class="new-character-form-content">
+      <%= form_with(model: @character, local: true, html: { class: "new-character-form" }) do |f| %>
+
+        <% if @character.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+            <ul>
+            <% @character.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :race %>
+          <%= f.select :race_id, Race.all.collect { |r| [r.name, r.id] } %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :character_class %>
+          <%= f.select :character_class_id, CharacterClass.all.collect { |c| [c.name, c.id] } %>
+        </div>
+
+        <div class="form-field">
+          <%= f.label :gender %>
+          <%= f.select :gender, ['Female', 'Male', 'Non-Binary', 'Other'] %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

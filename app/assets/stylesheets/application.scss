@@ -1,19 +1,49 @@
 // Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+@import 'config/fonts';
+@import 'config/colors';
+@import 'config/bootstrap_variables';
 
 // External libraries
-@import "bootstrap";
-@import "font-awesome";
+@import 'bootstrap';
+@import 'font-awesome';
+
+// Base styles
+body {
+	color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: lightgray;
+}
+
+.main-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 // Your CSS partials
-@import "components/index";
-@import "pages/index";
+@import 'components/index';
+@import 'pages/index';
 
 // Components
-@import "components/buttons";
-@import "components/forms";
-@import "components/charactercard";
-@import "components/lists";
-
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/charactercard';
+@import 'components/lists';
+@import 'components/campaigncard';

@@ -3,10 +3,9 @@ class CampaignsController < ApplicationController
   def my_campaigns
     @user = current_user
     @campaigns = @user.campaigns
-  end
-
-  def index
-    @campaigns = CampaignOptions.all
+    @campaign_options = @campaigns.map do |campaign|
+    campaign.campaign_option
+    end
   end
 
   # def new
@@ -14,7 +13,7 @@ class CampaignsController < ApplicationController
   # end
 
   def create
-    @option = CampaignOption.find(params[:id])
+    @option = CampaignOption.find(params[:campaign_id])
     @campaign = Campaign.new
     @campaign.user = current_user
     @campaign.campaign_option = @option
@@ -27,12 +26,12 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = CampaignOption.find(params[:id])
+    @campaign = Campaign.find(params[:id])
   end
 
   private
 
   def campaign_params
-    params.require(:campaign).permit(:user, :name, :location, :description, :image_url)
+    params.require(:campaign).permit(:user, :name, :location, :description,)
   end
 end

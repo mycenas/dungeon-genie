@@ -1,0 +1,29 @@
+  <div class="mycampaigns-container">
+    <div class="campaign-card-container">
+      <% if @campaign_options.any? %>
+          <% @campaign_options.each do |campaign| %>
+          <div class="campaign-flip-card">
+            <div class="campaign-flip-card-inner">
+              <!-- Card Front -->
+              <div class="campaign-flip-card-front">
+              <figure>
+                <%= image_tag campaign.image_url %>
+                <figcaption><%= campaign.name %></figcaption>
+                <div class="box-2">
+            <%= button_to 'CREATE A NEW CAMPAIGN', new_campaign_path(campaign_id: campaign.id), class: "create_btn btn-two" %>
+        </div>
+              </figure>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>You currently have no campaigns.</p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
