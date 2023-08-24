@@ -1,0 +1,448 @@
+[33mcommit 8291515e254881f722626afe45e724b4459e8cdb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: d29faca fa02e5c
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Thu Aug 24 18:55:34 2023 +1000
+
+    Merge pull request #25 from mycenas/three.js-interface
+    
+    Three.js interface
+
+[33mcommit fa02e5c3934d71d3fd5851988ce2a416ff9afb95[m[33m ([m[1;31morigin/three.js-interface[m[33m, [m[1;32mthree.js-interface[m[33m)[m
+Merge: cf4ebb0 d29faca
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Thu Aug 24 18:55:11 2023 +1000
+
+    Merge branch 'main' into three.js-interface
+
+[33mcommit cf4ebb012fed4e66fa43d333a9fd052b932d64c1[m[33m ([m[1;31morigin/hieu-js-test[m[33m, [m[1;32mhieu-js-test[m[33m)[m
+Author: Hieu Luong <ahomous@gmail.com>
+Date:   Tue Aug 22 21:30:50 2023 +1000
+
+    final working
+
+[33mcommit a9fde0f8efcf5cbd0c1eef26af2299fd0efe2625[m
+Author: Hieu Luong <ahomous@gmail.com>
+Date:   Tue Aug 22 21:22:48 2023 +1000
+
+    push 9:22
+
+[33mcommit d29faca2157294a2baed871166382a4d0d10bb96[m
+Merge: adde9ce cc4d7d2
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Tue Aug 22 21:22:17 2023 +1000
+
+    Merge pull request #23 from mycenas/brians-campaign-css
+    
+    fixed some css
+
+[33mcommit cc4d7d2a5933d098ffd0aa1e9e03ba1fc218ad61[m[33m ([m[1;31morigin/brians-campaign-css[m[33m)[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 22 21:16:33 2023 +1000
+
+    fixed some css
+
+[33mcommit adde9ced52a5316382099b4d01a1fd99627ea3f8[m
+Merge: ab0ac47 3ea4181
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Tue Aug 22 20:44:00 2023 +1000
+
+    Merge pull request #22 from mycenas/sessions-view
+    
+    Created sessions view)
+
+[33mcommit 3ea41816da92c4dff2186c1ebf08b78eaa723143[m[33m ([m[1;31morigin/sessions-view[m[33m)[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 22 20:40:39 2023 +1000
+
+    Created sessions view)
+
+[33mcommit ab0ac47b10f2da8bc3263a2baa8d21ba686a7fbc[m
+Merge: cc9665b b8c1312
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Tue Aug 22 19:55:21 2023 +1000
+
+    Merge pull request #21 from mycenas/campaign-sessions
+    
+    implemented routes for campaign sessions
+
+[33mcommit b8c1312f6f356e1a971a1a4b33873b16e39aec98[m
+Merge: eb35996 cc9665b
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Tue Aug 22 19:55:08 2023 +1000
+
+    Merge branch 'main' into campaign-sessions
+
+[33mcommit eb359967be90bc01c37cb9d4d83373bfd51aacab[m[33m ([m[1;31morigin/campaign-sessions[m[33m)[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 22 19:48:34 2023 +1000
+
+    implemented routes for campaign sessions
+
+[33mcommit cc9665b8cf25630e191c486fd415917df474572d[m
+Merge: 894664d 6991750
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Tue Aug 22 19:38:13 2023 +1000
+
+    Merge pull request #20 from mycenas/campaign_option_index
+    
+    completed create and show partially
+
+[33mcommit 69917503d0b534939ba9d2cc0ccf3a2f71d9df2a[m[33m ([m[1;31morigin/campaign_option_index[m[33m)[m
+Author: David Lee <davidedwardlee@gmail.com>
+Date:   Tue Aug 22 19:33:55 2023 +1000
+
+    completed create and show partially
+
+[33mcommit 894664d54d58521fbcc183b1ead78def586f3c80[m
+Merge: 0c765fb 64f298b
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 19 16:08:10 2023 +1000
+
+    Merge pull request #19 from mycenas/home-image
+    
+    Home image
+
+[33mcommit 64f298b9ba93cf6b22e6601fdc5d37ca288e3f2a[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 19 16:07:43 2023 +1000
+
+    fixed button glitch
+
+[33mcommit cf45982d1bcd4250031c84ed4d669c3e12a9a9ee[m[33m ([m[1;31morigin/home-image[m[33m)[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 19 15:54:41 2023 +1000
+
+    updated home page image
+
+[33mcommit 0c765fbac8b914f1a583ec74a7795e466912f906[m
+Merge: 22ea0ab 5696ef7
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 19 15:26:53 2023 +1000
+
+    Merge pull request #18 from mycenas/campaignoptions-button-link
+    
+    fixed link to campaign options on campaigns page
+
+[33mcommit 5696ef7275e59904eb84fef72adadf5501f39e03[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 19 15:26:34 2023 +1000
+
+    fixed link to campaign options on campaigns page
+
+[33mcommit 22ea0ab27684d552ba41b72a8baf36ce508109a3[m
+Merge: 00c7573 de133e4
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 19 15:17:52 2023 +1000
+
+    Merge pull request #17 from mycenas/campaign-fixed
+    
+    Campaign fixed
+
+[33mcommit de133e4279d9c340fe20d9edf1d8ea04e2403c7e[m[33m ([m[1;31morigin/campaign-fixed[m[33m)[m
+Merge: c32a35b 00c7573
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 19 15:17:08 2023 +1000
+
+    Merge branch 'main' into campaign-fixed
+
+[33mcommit c32a35b8b724fa53fc8b5c5d60a48d84f8ff0492[m
+Author: Brian Hicarte <bhicarte@hotmail.com>
+Date:   Sat Aug 19 15:13:22 2023 +1000
+
+    campaign fixed
+
+[33mcommit 00c7573c7d4740ea7d707569388c605abf53e791[m
+Merge: 8c19766 1b6cb86
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Sat Aug 19 14:52:59 2023 +1000
+
+    Merge pull request #15 from mycenas/new-character-v2
+    
+    New character v2
+
+[33mcommit 15ce4e14b432398c785a236e398f115b06c7c703[m[33m ([m[1;31morigin/campaign_card[m[33m)[m
+Author: Brian Hicarte <bhicarte@hotmail.com>
+Date:   Sat Aug 19 14:52:47 2023 +1000
+
+    campaign card needs fixing
+
+[33mcommit 1b6cb86013e6a3fbeaf645c0e19d63034a86a67a[m[33m ([m[1;31morigin/new-character-v2[m[33m)[m
+Merge: 293d089 8c19766
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Sat Aug 19 14:51:11 2023 +1000
+
+    Merge branch 'main' into new-character-v2
+
+[33mcommit 293d089640cd629f87752e529c88e0f2ca9f541f[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 19 14:32:35 2023 +1000
+
+    Fixed create a character
+
+[33mcommit 8c19766ea1b83a0f879932fc2b76a6760be40017[m
+Merge: 1e4f54d 784cf6b
+Author: Brian Hicarte <128865677+bhicarte@users.noreply.github.com>
+Date:   Sat Aug 19 14:19:21 2023 +1000
+
+    Merge pull request #14 from mycenas/new-campaign
+    
+    completed campaign options index
+
+[33mcommit 7205519c58514e032cdb01945eca7c5723eaa68f[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 19 14:15:45 2023 +1000
+
+    Debugging infinite loop in character creation
+
+[33mcommit 784cf6b2c8779a78d9ae625ff54b0298091a3ec0[m[33m ([m[1;31morigin/new-campaign[m[33m)[m
+Author: David Lee <davidedwardlee@gmail.com>
+Date:   Sat Aug 19 14:13:34 2023 +1000
+
+    completed campaign options index
+
+[33mcommit 62eaa9795569908ff8cade31dd1e69bbc46d303c[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 19 12:55:23 2023 +1000
+
+    Testing default character values
+
+[33mcommit bb2c4864c98aed6f010e72bc07a8d1423e544536[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Fri Aug 18 12:30:16 2023 +1000
+
+    Removed weapons from Character table
+
+[33mcommit 2394e125f07e986e8dbbad5e0dc8d3c7b29902dc[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Thu Aug 17 21:35:13 2023 +1000
+
+    added equipment options with js
+
+[33mcommit 1e4f54deeee31afc4ab76276c6693fd39086745a[m
+Merge: 5f3a3a5 40e5d54
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Thu Aug 17 20:39:33 2023 +1000
+
+    Merge pull request #12 from mycenas/characters-new
+    
+    added new character form
+
+[33mcommit 5f3a3a5261483c83ab0a46622811f8572de00d0d[m
+Merge: 76f5c17 78b0955
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Thu Aug 17 20:39:03 2023 +1000
+
+    Merge pull request #13 from mycenas/front-end-campaign
+    
+    cards in
+
+[33mcommit 78b0955b6eb9008b24c091a4870f63c8a347387d[m[33m ([m[1;31morigin/front-end-campaign[m[33m)[m
+Author: David Lee <davidedwardlee@gmail.com>
+Date:   Thu Aug 17 20:36:58 2023 +1000
+
+    cards in
+
+[33mcommit 40e5d54c76915850ebed6046b5f3ac16dc17e503[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Thu Aug 17 20:36:18 2023 +1000
+
+    added new character form
+
+[33mcommit 76f5c17c2eca6c6aabf3f0543d99e822201e9674[m
+Merge: e90548c afcdc32
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Wed Aug 16 16:17:27 2023 +1000
+
+    Merge pull request #11 from mycenas/my-characters-v4
+    
+    changed some styling on character cards
+
+[33mcommit afcdc328432264851c27ac1efd8710aae96f142a[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Wed Aug 16 16:15:50 2023 +1000
+
+    changed some styling on character cards
+
+[33mcommit e90548c9d689d1bb278d679a9ca32bfc74554a43[m
+Merge: a8a8410 c4ac773
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Wed Aug 16 15:28:38 2023 +1000
+
+    Merge pull request #10 from mycenas/my-characters-v3
+    
+    added character images, altered base styles and added links to navbar
+
+[33mcommit c4ac7737abc104d62043902f01abace4145aea8e[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Wed Aug 16 15:28:04 2023 +1000
+
+    added character images, altered base styles and added links to navbar
+
+[33mcommit a8a8410ce2545f1337f533089a78623391bd426e[m
+Merge: a8b3b04 28ec9c5
+Author: Brian Hicarte <128865677+bhicarte@users.noreply.github.com>
+Date:   Tue Aug 15 21:29:37 2023 +1000
+
+    Merge pull request #9 from mycenas/my-characters-v2
+    
+    added cards to my characters page
+
+[33mcommit a8b3b043633a739c626f1392001036df6a59a4ed[m
+Merge: 7b5751a 3005f3d
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Tue Aug 15 21:25:35 2023 +1000
+
+    Merge pull request #8 from mycenas/html
+    
+    campaigns html created
+
+[33mcommit 3005f3d7ec7f26417c07674fd8df1e374a7d0665[m
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Tue Aug 15 21:23:03 2023 +1000
+
+    Update seeds.rb
+
+[33mcommit 28ec9c5a0f2b48b4cb525ed8b17b0705eb181c8b[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 15 21:20:14 2023 +1000
+
+    added cards to my characters page
+
+[33mcommit 25fda2f0463ad276710d7f17efd9532823405e68[m
+Author: Brian Hicarte <bhicarte@hotmail.com>
+Date:   Tue Aug 15 21:17:50 2023 +1000
+
+    campaigns html created
+
+[33mcommit d774ffe502ca71542ba211a7c98836faf95c406b[m
+Author: Hieu Luong <ahomous@gmail.com>
+Date:   Tue Aug 15 21:06:16 2023 +1000
+
+    starting file
+
+[33mcommit 7b5751a0c5e0eb896d8ce9f07ea7fc71367530e0[m
+Merge: d6041c9 4f18bb5
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Tue Aug 15 20:05:27 2023 +1000
+
+    Merge pull request #7 from mycenas/my-characters
+    
+    my characters completed
+
+[33mcommit 4f18bb5012305fea4a957b6a50c51e525b729b46[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 15 20:00:28 2023 +1000
+
+    my characters completed
+
+[33mcommit d6041c9604534bdc0b38f23e795182fd6dfcf97c[m
+Merge: 1972003 1a321ea
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Tue Aug 15 19:59:45 2023 +1000
+
+    Merge pull request #6 from mycenas/campaign-backend-v2
+    
+    completed campaigns controller
+
+[33mcommit 1a321eae7cc385bc7d9dd567f99e36b2c71eeced[m
+Author: David Lee <davidedwardlee@gmail.com>
+Date:   Tue Aug 15 19:52:43 2023 +1000
+
+    completed campaigns controller
+
+[33mcommit 19720033de0b401496f9dd2551f2c0b5079540b9[m
+Merge: ffa3b57 ccc0ab4
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Sat Aug 12 16:42:49 2023 +1000
+
+    Merge pull request #5 from mycenas/users-controller
+    
+    Added users controller and pages controller
+
+[33mcommit ccc0ab42dd1829a7150a40a3676b8cd6a514a87a[m
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Sat Aug 12 16:42:03 2023 +1000
+
+    Update routes.rb
+
+[33mcommit 0dc330b853ea41a48af3a83ade637aaac39e29dc[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 12 16:34:22 2023 +1000
+
+    Added users controller and pages controller
+
+[33mcommit ffa3b5796f63cdf5ba4eec2a65e39c7c0d9ca2de[m
+Merge: 39a62e5 4eb2d78
+Author: David Edward Lee <128865370+davidedwardlee@users.noreply.github.com>
+Date:   Sat Aug 12 15:42:53 2023 +1000
+
+    Merge pull request #4 from mycenas/schema-changes-1
+    
+    DB schema updated, seeds created
+
+[33mcommit 4eb2d789086483a07308858d71d7ede930908b79[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 12 15:30:21 2023 +1000
+
+    DB schema updated, seeds created
+
+[33mcommit 39a62e52dc8509dc51c0ffc5623db7266d5159be[m
+Merge: 5f9350b 1f525b2
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 12 11:58:28 2023 +1000
+
+    Merge pull request #3 from mycenas/heroku-setup
+    
+    added heroku and new gems
+
+[33mcommit 1f525b27349055c1c4c322f210aeb5ded8597be5[m
+Merge: a85742b 5f9350b
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 12 11:58:21 2023 +1000
+
+    Merge branch 'main' into heroku-setup
+
+[33mcommit a85742b76ed79cef037c4ee8ba4c8dfc58b3e8e9[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Sat Aug 12 11:57:12 2023 +1000
+
+    added heroku and new gems
+
+[33mcommit 5f9350b3a04c7abdef42612e0db6293b926da4aa[m
+Merge: 827340a 5305f47
+Author: Marnie Mycena <126632986+mycenas@users.noreply.github.com>
+Date:   Sat Aug 12 11:56:23 2023 +1000
+
+    Merge pull request #2 from mycenas/initial-routes
+    
+    initial routes completed
+
+[33mcommit 5305f477a9c9519a05cb664b976efa11396fbba9[m
+Author: David Lee <davidedwardlee@gmail.com>
+Date:   Sat Aug 12 11:55:00 2023 +1000
+
+    initial routes completed
+
+[33mcommit 827340a4c3e104fdf77a0bcfbac61d818969eb3c[m
+Author: Brian Hicarte <bhicarte@hotmail.com>
+Date:   Thu Aug 10 21:36:42 2023 +1000
+
+    install packages
+
+[33mcommit 7a0abe7ed308d76e498b6cf1f6f8b129cc030c34[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Thu Aug 10 21:01:28 2023 +1000
+
+    Initial models and controllers generated, join tables create and validations set
+
+[33mcommit f3a4c10ca204e18f79709af02c034334ee0c7ef2[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 8 21:18:04 2023 +1000
+
+    first commit
+
+[33mcommit 4eb14dd1c78018d7efe55646968cc0151dfcc1bf[m
+Author: Marnie Mycena <marniemycena@gmail.com>
+Date:   Tue Aug 8 21:17:07 2023 +1000
+
+    Initial commit
