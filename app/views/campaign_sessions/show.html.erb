@@ -6,32 +6,61 @@
 <div id="chatBox">
   <div id="chatDisplay"></div>
 
-  <div>
+  <div id="ahh">
     <input type="text" id="messageInput" placeholder="Speak to Dungeon Genie">
     <button id="sendButton">Speak</button>
   </div>
 </div>
 
 <script>
-  const btn = document.querySelector('#sendButton');
+  // const btn = document.querySelector('#sendButton');
+  // const inputBox = document.querySelector('#messageInput');
+
+  // const requestData = { message: inputBox.value };
+  // console.log(requestData)
+    const btn = document.querySelector('#sendButton');
+btn.addEventListener('click', () => {
+
   const inputBox = document.querySelector('#messageInput');
-
+  const test = document.querySelector('#ahh');
   const requestData = { message: inputBox.value };
+  console.log(requestData)
+  // console.log("tests")
+const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
-  btn.addEventListener('click',() => {
-    fetch('/campaign_sessions/send_message', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      // Add any other headers you might need
-    },
-    body: JSON.stringify(requestData)
+fetch('/campaign_sessions/send_message', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-CSRF-Token': csrfToken, // Include the CSRF token in the headers
+  },
+  body: JSON.stringify(requestData),
+})
+    .then(response =>
+    {
+      console.log('Raw response:', response);
+      return response.text()
     })
-    .then(response => response.json())
     .then(data => {
-      console.log(data)
+      console.log(data);
+      test.insertAdjacentHTML("afterbegin", `<h1>${data}</h1>`)
     })
-  })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+
+      // const response = await fetch(`/campaign_sessions/send_message`);
+      // const data = await response.json();
+      // console.log(data)
+      // console.log(response)
+
+});
+
+
+
+
+
+
 </script>
 
 <%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
