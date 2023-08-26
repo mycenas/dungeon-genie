@@ -1,8 +1,9 @@
 Arguments: 
-  /Users/bhicarte/.nvm/versions/node/v16.15.1/bin/node /Users/bhicarte/.nvm/versions/node/v16.15.1/bin/yarn install
+
+  /home/marnie/.nvm/versions/node/v16.15.1/bin/node /home/marnie/.nvm/versions/node/v16.15.1/bin/yarn install
 
 PATH: 
-  ./bin:./node_modules/.bin:/Users/bhicarte/.nvm/versions/node/v16.15.1/bin:/Users/bhicarte/.rbenv/shims:/Users/bhicarte/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/bhicarte/.pyenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+  /home/marnie/.nvm/versions/node/v16.15.1/bin:/home/marnie/.rbenv/shims:/home/marnie/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/dotnet/:/mnt/c/Users/RadiumPCs/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/RadiumPCs/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/heroku/bin
 
 Yarn version: 
   1.22.19
@@ -11,15 +12,15 @@ Node version:
   16.15.1
 
 Platform: 
-  darwin arm64
+  linux x64
 
 Trace: 
-  SyntaxError: /Users/bhicarte/code/dungeon-genie/package.json: Unexpected token } in JSON at position 902
+  SyntaxError: /home/marnie/dungeon-genie/package.json: Unexpected token } in JSON at position 902
       at JSON.parse (<anonymous>)
-      at /Users/bhicarte/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:1629:59
+      at /home/marnie/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:1629:59
       at Generator.next (<anonymous>)
-      at step (/Users/bhicarte/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /Users/bhicarte/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:321:13
+      at step (/home/marnie/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /home/marnie/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {
