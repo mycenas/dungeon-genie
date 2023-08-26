@@ -16,13 +16,12 @@ class CampaignSessionsController < ApplicationController
   end
 
   def send_message
-    raise
-    chat_service = ChatService.new(message: "params[:message]")
+    #  raise 'This is a test exception'
+    chat_service = ChatService.new(message: params[:message])
     response = chat_service.call
-
+    Rails.logger.debug("Response content: #{response.inspect}")
     respond_to do |format|
-      format.json { render json: response}
-      format.html
+      format.json { render json: response }
     end
   end
 
