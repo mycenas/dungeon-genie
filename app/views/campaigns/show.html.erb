@@ -1,9 +1,28 @@
-<h1><%= @campaign %></h1>
+<body>
+  <div class="campaign-show">
+    <h1><%= @campaign.campaign_option.name %></h1>
 
-<%= button_to 'Start Session', campaign_sessions_path(@campaign), class: "create_btn" %>
+    <figure>
+        <div class="img-show">
+          <%= image_tag @campaign.campaign_option.image_url %>
+        </div>
+    </figure>
 
-<div class="box-2">
-    <div class="create_btn btn-two" onclick="window.location='<%= url_for(my_campaigns_path) %>'" style="cursor: pointer;">
-        <span>Return to My Campaigns</span>
+    <div class="campaign-description"
+      <p><%=@campaign.campaign_option.description%></p>
+      <%= button_to 'Start Session', campaign_sessions_path(@campaign), class: "start-session-btn" %>
     </div>
-</div>
+  </div>
+
+    <div class="return-btn-container">
+      <div class="main-button" onclick="window.location='<%= url_for(my_campaigns_path) %>'" style="cursor: pointer;">
+        <span>Return to My Campaigns</span>
+      </div>
+    </div>
+
+</body>
+</html>
+
+
+
+# campaign name, description, images, user, start session, current character,
