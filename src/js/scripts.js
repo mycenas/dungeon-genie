@@ -14,7 +14,7 @@ renderer.gammaFactor = 2.2;
 renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
-// SCENE
+// SCENE.
 const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
 const backgroundTexture = textureLoader.load(backgroundImage);
