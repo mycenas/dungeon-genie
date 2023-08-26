@@ -1,5 +1,8 @@
 <h1>Session for <%= @campaign%></h1>
 
+<%= link_to "Test", campaign_sessions_send_message_path, data: {turbo_method: :post} %>
+<%= button_to "Test", campaign_sessions_send_message_path, method: :post %>
+
 <div id="chatBox">
   <div id="chatDisplay"></div>
 
@@ -10,11 +13,20 @@
 </div>
 
 <script>
-  const btn = document.querySelector('#sendButton')
+  const btn = document.querySelector('#sendButton');
+  const inputBox = document.querySelector('#messageInput');
+
+  const requestData = { message: inputBox.value };
+
   btn.addEventListener('click',() => {
     fetch('/campaign_sessions/send_message', {
-        method: 'POST',
-        })
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // Add any other headers you might need
+    },
+    body: JSON.stringify(requestData)
+    })
     .then(response => response.json())
     .then(data => {
       console.log(data)
@@ -22,7 +34,7 @@
   })
 </script>
 
-// <%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 // <script>
 // $(document).ready(function() {
 //     $('#sendButton').click(function() {
