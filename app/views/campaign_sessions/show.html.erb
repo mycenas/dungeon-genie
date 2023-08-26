@@ -1,1 +1,43 @@
 <h1>Session for <%= @campaign%></h1>
+
+<div id="chatBox">
+  <div id="chatDisplay"></div>
+
+  <div>
+    <input type="text" id="messageInput" placeholder="Speak to Dungeon Genie">
+    <button id="sendButton">Speak</button>
+  </div>
+</div>
+
+<script>
+  const btn = document.querySelector('#sendButton')
+  btn.addEventListener('click',() => {
+    fetch('/campaign_sessions/send_message', {
+        method: 'POST',
+        })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+  })
+</script>
+
+// <%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+// <script>
+// $(document).ready(function() {
+//     $('#sendButton').click(function() {
+//         var userMessage = $('#messageInput').val();
+
+//         $.ajax({
+//             method: "POST",
+//             url: "/campaign_sessions/send_message",
+//             data: { message: userMessage },
+//             success: function(response) {
+//                 $('#chatDisplay').append('<div class="user-message">' + userMessage + '</div>');
+//                 $('#chatDisplay').append('<div class="ai-message">' + response.ai_message + '</div>');
+//             }
+//         });
+//     });
+// });
+
+// </script> %>
