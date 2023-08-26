@@ -1,102 +1,115 @@
 .circle-add-btn {
-  width: 60px;
-  height: 60px;
-  margin-left: 30px;
-  border-radius: 50%;
-  background-color: #82be7c;
-  color: white;
-  font-size: 32px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  box-shadow: 0 2px 5px #000000;
-  transition: background-color 0.3s;
+	width: 60px;
+	height: 60px;
+	margin-left: 30px;
+	border-radius: 50%;
+	background-color: #82be7c;
+	color: white;
+	font-size: 32px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 2px 5px #000000;
+	transition: background-color 0.3s;
 }
 
 .circle-add-btn:hover {
-  background-color: #598056;
+	background-color: #598056;
 }
 
 // Create a campaign button
 .box-2 {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 12px;
-  position: absolute;
-  bottom: 200px;
-  left: 50%;
-  transform: translateX(-50%);
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(17, 25, 40, 0.75);
+	border-radius: 12px;
+	position: absolute;
+	bottom: 200px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .create_btn {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 12px;
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
-  cursor: pointer;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(17, 25, 40, 0.75);
+	border-radius: 12px;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	width: 250px;
+	cursor: pointer;
 }
 
 .btn-two {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 12px;
-  color: #fff;
-  transition: all 0.5s;
-  position: relative;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(17, 25, 40, 0.75);
+	border-radius: 12px;
+	color: #fff;
+	transition: all 0.5s;
+	position: relative;
 }
 
 .btn-two span {
-  z-index: 2;
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
+	z-index: 2;
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 .btn-two::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: all 0.5s;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+	content: '';
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: all 0.5s;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(17, 25, 40, 0.75);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .btn-two::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: all 0.5s;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.75);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+	content: '';
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: all 0.5s;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(17, 25, 40, 0.75);
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .btn-two:hover::before {
-  transform: rotate(-45deg);
-  background-color: rgba(255, 255, 255, 0);
+	transform: rotate(-45deg);
+	background-color: rgba(255, 255, 255, 0);
 }
 .btn-two:hover::after {
-  transform: rotate(45deg);
-  background-color: rgba(255, 255, 255, 0);
+	transform: rotate(45deg);
+	background-color: rgba(255, 255, 255, 0);
 }
 
 .footer-button-container {
-  flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.main-button {
+	background-color: transparent;
+	border: 3px solid #00d7c3;
+	border-radius: 50px;
+	-webkit-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+	color: #00d7c3;
+}
+.main-button:hover {
+	box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+	border: 3px solid #00d7c3;
 }
