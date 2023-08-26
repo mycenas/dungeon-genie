@@ -3,12 +3,12 @@
     <% @campaign_options.each do |campaign| %>
        <div class="campaign-card">
         <div class="face face1">
-          <figure>
+          <div class="campaign-figure">
             <div class="img-container">
               <%= image_tag campaign.image_url %>
             </div>
-            <figcaption><%= campaign.name %></figcaption>
-          </figure>
+            <div class="campaign-figcaption"><%= campaign.name %></div>
+          </div>
         </div>
 
         <div class="face face2">
@@ -23,6 +23,6 @@
   <% end %>
   </div>
 
-  <div class="box-2">
-    <%= link_to campaign_options_path, class: "create_btn btn-two" %>
-  </div>
+<%= link_to campaign_options_path, class: "circle-add-btn-link" do %>
+  <button class="circle-add-btn">+</button>
+<% end %>
