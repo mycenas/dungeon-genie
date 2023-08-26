@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # campaign_sessions within campaigns
   post '/campaigns/:campaign_id/campaign_sessions', to: 'campaign_sessions#create', as: 'campaign_sessions'
   get '/campaigns/:campaign_id/campaign_sessions/:id', to: 'campaign_sessions#show', as: 'campaign_session'
-
+  post 'campaign_sessions/send_message', to: 'campaign_sessions#send_message'
 
   #invitations
   # post 'campaigns/:campaign_id/invitations', to: 'campaigns#create', as: 'invitations'
