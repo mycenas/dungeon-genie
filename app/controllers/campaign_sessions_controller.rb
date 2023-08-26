@@ -15,18 +15,21 @@ class CampaignSessionsController < ApplicationController
     @campaign_session = @campaign.campaign_sessions.find(params[:id])
   end
 
+  def send_message
+    raise
+    chat_service = ChatService.new(message: "params[:message]")
+    response = chat_service.call
+
+    respond_to do |format|
+      format.json { render json: response}
+      format.html
+    end
+  end
+
   private
 
   def find_campaign
     @campaign = Campaign.find(params[:campaign_id])
-  end
-
-  def send_message
-    raise
-    chat_service = ChatService.new(message: params[:message])
-    response = chat_service.call
-    raise
-    # render json: { ai_message: response }
   end
 
 end
