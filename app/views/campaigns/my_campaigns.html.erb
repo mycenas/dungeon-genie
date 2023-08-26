@@ -10,11 +10,10 @@
             <figcaption><%= campaign.name %></figcaption>
           </figure>
         </div>
-        
+
         <div class="face face2">
           <div class="campaign-content">
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?</p>
-            <a href="#" type="button">Read More</a>
+            <center><a href="#" type="button">Select</a></center>
           </div>
         </div>
       </div>
@@ -22,4 +21,8 @@
   <% else %>
     <p>You currently have no campaigns.</p>
   <% end %>
-</div>
+  </div>
+
+  <div class="box-2">
+    <%= link_to campaign_options_path, class: "create_btn btn-two" %>
+  </div>

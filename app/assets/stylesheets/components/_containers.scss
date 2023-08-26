@@ -1,0 +1,41 @@
+.campaign-show {
+  border: 80px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  background-color: rgb(228, 216, 216);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.campaign-show h1{
+  color: #007bff;
+}
+
+.start-session-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.campaign-show figure {
+  justify-content: center;
+}
+
+.img-show img {
+  height: 100%;
+  width: 100%;
+}
+
+.return-btn-container {
+  padding: 100px;
+  margin: 100px;
+}
