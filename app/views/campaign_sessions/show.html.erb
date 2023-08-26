@@ -1,84 +1,58 @@
-<h1>Session for <%= @campaign%></h1>
+<center><h2><%= @campaign.campaign_option.name %></h2>
+<h3>Location: <%= @campaign.campaign_option.location %></h3>
+<p>Campaign Session <%= @campaign_session.id %></p>
 
-<%= link_to "Test", campaign_sessions_send_message_path, data: {turbo_method: :post} %>
-<%= button_to "Test", campaign_sessions_send_message_path, method: :post %>
-
-<div id="chatBox">
+<div id="chatBox" data-campaign-description="<%= @campaign.campaign_option.description %>" >
   <div id="chatDisplay"></div>
 
-  <div id="ahh">
+  <div id="chat-response">
     <input type="text" id="messageInput" placeholder="Speak to Dungeon Genie">
-    <button id="sendButton">Speak</button>
+    <button id="glassButton">Speak</button>
   </div>
 </div>
 
 <script>
-  // const btn = document.querySelector('#sendButton');
-  // const inputBox = document.querySelector('#messageInput');
+  const btn = document.querySelector('#glassButton');
+  
+  btn.addEventListener('click', () => {
+    const inputBox = document.querySelector('#messageInput');
+    const chatBox = document.querySelector('#chatBox');
+    const campaignDescription = chatBox.getAttribute('data-campaign-description');
+    const responseArea = document.querySelector('#chatDisplay');
+    const requestData = { 
+      message: inputBox.value,
+      campaign_description: campaignDescription
+      };
+    console.log(requestData);
+    
+    const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
-  // const requestData = { message: inputBox.value };
-  // console.log(requestData)
-    const btn = document.querySelector('#sendButton');
-btn.addEventListener('click', () => {
-
-  const inputBox = document.querySelector('#messageInput');
-  const test = document.querySelector('#ahh');
-  const requestData = { message: inputBox.value };
-  console.log(requestData)
-  // console.log("tests")
-const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-
-fetch('/campaign_sessions/send_message', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-CSRF-Token': csrfToken, // Include the CSRF token in the headers
-  },
-  body: JSON.stringify(requestData),
-})
-    .then(response =>
-    {
+    fetch('/campaign_sessions/send_message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken,
+      },
+      body: JSON.stringify(requestData),
+    })
+    .then(response => {
       console.log('Raw response:', response);
-      return response.text()
+      return response.json(); // Change from response.text() to response.json()
     })
     .then(data => {
-      console.log(data);
-      test.insertAdjacentHTML("afterbegin", `<h1>${data}</h1>`)
+      let message = data.response;
+
+      // Replace \n\n with <br><br> for HTML line breaks
+      message = message.replace(/\n\n/g, '<br><br>');
+
+      // Remove 'Title: Shadows of the Forgotten Kingdom' section
+      message = message.replace(/Title: [^\n]+<br><br>/, '');
+
+      console.log(message);
+      responseArea.insertAdjacentHTML("afterbegin", `<p>${message}</p>`);
     })
     .catch(error => {
       console.error('Fetch error:', error);
     });
-
-      // const response = await fetch(`/campaign_sessions/send_message`);
-      // const data = await response.json();
-      // console.log(data)
-      // console.log(response)
-
-});
-
-
-
-
-
-
+  });
 </script>
-
-<%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-// <script>
-// $(document).ready(function() {
-//     $('#sendButton').click(function() {
-//         var userMessage = $('#messageInput').val();
-
-//         $.ajax({
-//             method: "POST",
-//             url: "/campaign_sessions/send_message",
-//             data: { message: userMessage },
-//             success: function(response) {
-//                 $('#chatDisplay').append('<div class="user-message">' + userMessage + '</div>');
-//                 $('#chatDisplay').append('<div class="ai-message">' + response.ai_message + '</div>');
-//             }
-//         });
-//     });
-// });
-
-// </script> %>

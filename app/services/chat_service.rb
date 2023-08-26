@@ -1,20 +1,22 @@
 class ChatService
-  attr_reader :message
+  attr_reader :message, :campaign_description
 
-  def initialize(message:)
+  def initialize(message:, campaign_description:)
     @message = message
+    @campaign_description = campaign_description
   end
 
   def call
-    messages = training_prompts.map do |prompt|
+    messages = dm_prompts.map do |prompt|
       { role: "system", content: prompt}
     end
 
+    messages << { role: "system", content: "Campaign Description: #{campaign_description}"}
     messages << { role: "user", content: message}
 
     response = client.chat(
       parameters: {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4",
         messages: messages,
         temperature: 0.7,
       }
@@ -25,10 +27,10 @@ class ChatService
 
   private
 
-  def training_prompts
+  def dm_prompts
+    description = campaign_description || 'a fantasy world'
     [
-      "Do you know what a Dungeon Master is?",
-      "Can you pretend to be a Dungeon Master from now on? Answer yes or no",
+      "You are an AI-powered Dungeon Master for a Dungeons & Dragons campaign. Your role is to guide the players through #{description}. Begin the campaign."
     ]
   end
 
