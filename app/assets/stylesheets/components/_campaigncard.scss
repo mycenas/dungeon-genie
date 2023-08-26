@@ -11,12 +11,14 @@
 	width: 30%;
 	margin: 1%;
 	overflow: hidden;
+	border-radius: 15px;
 }
 
 .campaign-card-container .campaign-card .face {
 	width: 100%;
 	height: auto;
 	transition: 0.4s;
+	border-radius: 15px;
 }
 
 .campaign-card-container .campaign-card .face.face1 {
@@ -28,6 +30,7 @@
 	align-items: center;
 	z-index: 2;
 	transform: translateY(100px);
+	border-radius: 15px;
 }
 
 .campaign-card-container .campaign-card:hover .face.face1 {
@@ -39,6 +42,7 @@
 }
 
 .campaign-card-container .campaign-card .face.face1 .img-container img {
+	border-radius: 15px;
 	opacity: 0.5;
 	transition: 0.5s;
 	text-align: center;
