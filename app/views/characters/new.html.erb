@@ -24,10 +24,14 @@
           <%= f.select :race_id, Race.all.collect { |r| [r.name, r.id] } %>
         </div>
 
+        <div id='race-details'></div>
+
         <div class="form-field">
           <%= f.label :character_class %>
           <%= f.select :character_class_id, CharacterClass.all.collect { |c| [c.name, c.id] } %>
         </div>
+
+        <div id='class-details'></div>
 
         <div class="form-field">
           <%= f.label :gender %>
@@ -41,3 +45,28 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+  $('#race_select').on('change', function() {
+    var selectedRaceId = $(this).val();
+    if (selectedRaceId) {
+      $.ajax({
+        url: "/races/" + selectedRaceId,
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+          var raceDetails = `
+            <h3>${data.name}</h3>
+            <p><strong>Description:</strong> ${data.description}</p>
+            <p><strong>Ability Bonuses:</strong> ${data.ability_bonuses}</p>
+            <p><strong>Traits:</strong> ${data.traits}</p>
+            <p><strong>Languages:</strong> ${data.languages}</p>
+          `;
+          $('#race-details').html(raceDetails);
+        }
+      });
+    }
+  });
+});
+</script>
