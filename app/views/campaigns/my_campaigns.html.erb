@@ -3,18 +3,17 @@
     <% @campaign_options.each do |campaign| %>
        <div class="campaign-card">
         <div class="face face1">
-          <figure>
+          <div class="campaign-figure">
             <div class="img-container">
               <%= image_tag campaign.image_url %>
             </div>
-            <figcaption><%= campaign.name %></figcaption>
-          </figure>
+            <div class="campaign-figcaption"><%= campaign.name %></div>
+          </div>
         </div>
-        
+
         <div class="face face2">
           <div class="campaign-content">
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?</p>
-            <a href="#" type="button">Read More</a>
+            <center><a href="#" type="button">Select</a></center>
           </div>
         </div>
       </div>
@@ -22,4 +21,8 @@
   <% else %>
     <p>You currently have no campaigns.</p>
   <% end %>
-</div>
+  </div>
+
+<%= link_to campaign_options_path, class: "circle-add-btn-link" do %>
+  <button class="circle-add-btn">+</button>
+<% end %>
