@@ -1,30 +1,37 @@
-<center><h2><%= @campaign.campaign_option.name %></h2>
-<h3>Location: <%= @campaign.campaign_option.location %></h3>
-<p>Campaign Session <%= @campaign_session.id %></p>
+<center>
+  <h2><%= @campaign.campaign_option.name %></h2>
+  <h3>Location: <%= @campaign.campaign_option.location %></h3>
+  <p>Campaign Session <%= @campaign_session.id %></p>
+</center>
 
-<div id="chatBox" data-campaign-description="<%= @campaign.campaign_option.description %>" >
+<div id="wizard-container" data-controller="wizard">
+</div>
+<body class="wizard-background">
+</body>
+
+<div id="chatBox" data-campaign-description="<%= @campaign.campaign_option.description %>">
   <div id="chatDisplay"></div>
-
   <div id="chat-response">
     <input type="text" id="messageInput" placeholder="Speak to Dungeon Genie">
     <button id="glassButton">Speak</button>
   </div>
 </div>
 
+
 <script>
   const btn = document.querySelector('#glassButton');
-  
+
   btn.addEventListener('click', () => {
     const inputBox = document.querySelector('#messageInput');
     const chatBox = document.querySelector('#chatBox');
     const campaignDescription = chatBox.getAttribute('data-campaign-description');
     const responseArea = document.querySelector('#chatDisplay');
-    const requestData = { 
+    const requestData = {
       message: inputBox.value,
       campaign_description: campaignDescription
       };
     console.log(requestData);
-    
+
     const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
     fetch('/campaign_sessions/send_message', {
