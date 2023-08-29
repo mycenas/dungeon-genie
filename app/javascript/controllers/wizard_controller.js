@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const wizardUrl = new URL("./../pointing.glb", import.meta.url);
+const wizardUrl = new URL("./../wizard.glb", import.meta.url);
 const dungeonMasterTable = new URL("./../table.glb", import.meta.url);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const scene = new THREE.Scene();
@@ -21,12 +21,11 @@ export default class extends Controller {
     wizardContainer.appendChild(renderer.domElement);
 
     // SCENE
-
-    backgroundTexture.encoding = THREE.sRGBEncoding;
+    backgroundTexture.colorSpace = THREE.sRGBEncoding;
     scene.background = backgroundTexture;
 
     // CAMERA
-    const camera = new THREE.PerspectiveCamera(
+    const camera = new THREE.PerspectiveCamera (
       10,
       window.innerWidth / window.innerHeight,
       0.3,
@@ -46,25 +45,15 @@ export default class extends Controller {
     scene.add(enchantedBlue);
 
     // ANIMATIONS & LOADING WIZARD
-    let mixer;
 
-    gltflLoader.load(wizardUrl.href, function (gltf) {
+    gltflLoader.load(wizardUrl, function (gltf) {
       const model = gltf.scene;
-      model.traverse(function (child) {
-        if (child.isMesh) child.castShadow = true;
-      });
+      // Scale the model down by half.
+      model.scale(0.5, 0.5, 0.5);
       scene.add(model);
-      model.position.set(0, -1.2, -10);
-
-      mixer = new THREE.AnimationMixer(model);
-      gltf.animations.forEach(function (clip) {
-        const action = mixer.clipAction(clip);
-        action.play();
-      });
     });
 
-    // LOADING TABLE
-    gltflLoader.load(dungeonMasterTable.href, function (gltf) {
+    gltflLoader.load(dungeonMasterTable, function (gltf) {
       const model = gltf.scene;
       model.traverse(function (child) {
         if (child.isMesh) child.castShadow = true;
