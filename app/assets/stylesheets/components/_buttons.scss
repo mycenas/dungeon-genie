@@ -73,6 +73,7 @@
 	border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.125);
 }
+
 .btn-two::after {
 	content: '';
 	position: relative;
@@ -88,10 +89,12 @@
 	border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.125);
 }
+
 .btn-two:hover::before {
 	transform: rotate(-45deg);
 	background-color: rgba(255, 255, 255, 0);
 }
+
 .btn-two:hover::after {
 	transform: rotate(45deg);
 	background-color: rgba(255, 255, 255, 0);
@@ -109,7 +112,29 @@
 	transition: all 0.15s ease-in-out;
 	color: #00d7c3;
 }
+
 .main-button:hover {
 	box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
 	border: 3px solid #00d7c3;
+}
+
+#glassButton {
+	display: inline-block;
+	padding: 10px 5px;
+	width: 100px;
+	border: 0;
+	text-decoration: none;
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(30px);
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 14px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+#glassButton:hover {
+	background-color: rgba(255, 255, 255, 0.2);
 }
