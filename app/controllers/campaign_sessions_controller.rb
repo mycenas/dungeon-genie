@@ -16,19 +16,22 @@ class CampaignSessionsController < ApplicationController
   end
 
   def send_message
-    #  raise 'This is a test exception'
-    chat_service = ChatService.new(message: params[:message])
+    chat_service = ChatService.new(
+        message: chat_params[:message], 
+        campaign_description: chat_params[:campaign_description]
+    )
     response = chat_service.call
-    Rails.logger.debug("Response content: #{response.inspect}")
-    respond_to do |format|
-      format.json { render json: response }
-    end
+    render json: { response: response }
   end
 
   private
 
+  def chat_params
+    params.permit(:message, :campaign_description, campaign_session: {})
+  end
+
   def find_campaign
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.find_by(id: params[:campaign_id])
   end
 
 end
