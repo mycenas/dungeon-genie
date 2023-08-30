@@ -1,22 +1,16 @@
-<div class="campaign-card-container">
+<div class="mycampaigns-container">
   <% if @campaign_options.any? %>
     <% @campaign_options.each do |campaign| %>
-      <div class="campaign-card">
-        <div class="face face1">
-          <div class="campaign-figure">
-            <div class="img-container">
-              <%= image_tag campaign.image_url %>
+      <%= link_to campaign_path(campaign.id), class: 'card-link' do %>
+        <div class="mycampaigns-card">
+          <div class="mycampaigns-image">
+            <%= image_tag campaign.image_url %>
+            <div class="campaign-name-overlay">
+              <%= campaign.name %>
             </div>
           </div>
-          <div class="campaign-figcaption"><%= campaign.name %></div>
         </div>
-
-        <div class="face face2">
-          <div class="campaign-content">
-            <%= campaign.description %>
-          </div>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   <% else %>
     <p>You currently have no campaigns.</p>
