@@ -21,7 +21,7 @@ class CharactersController < ApplicationController
     end
 
     if @character.save
-      redirect_to my_characters_path, notice: "#{@character.name} was successfully created."
+      redirect_to my_characters_path
     else
       render :new
     end

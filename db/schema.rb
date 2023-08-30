@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_18_022940) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_020546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -116,12 +116,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_022940) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.json "history"
+    t.string "q_and_a", default: [], array: true
+    t.string "string", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "campaign_session_id", null: false
+    t.index ["campaign_session_id"], name: "index_chats_on_campaign_session_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "campaign_session_id", null: false
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
     t.index ["campaign_session_id"], name: "index_messages_on_campaign_session_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -179,6 +190,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_022940) do
   add_foreign_key "characters", "character_classes"
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "users"
+  add_foreign_key "chats", "campaign_sessions"
   add_foreign_key "messages", "campaign_sessions"
   add_foreign_key "messages", "users"
 end
