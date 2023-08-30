@@ -169,6 +169,10 @@ a {
 .campaign-figcaption {
 	background: #1a2038; /* Match face2 background color */
 	color: white;
+	text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+	font-size: 16px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
 	padding: 5px 10px;
 	box-sizing: border-box;
 	text-align: center;

@@ -17,6 +17,13 @@
 	background-color: #925bff;
 }
 
+.circle-add-btn-link {
+	position: fixed;
+	bottom: 20px;
+	left: -10px;
+	z-index: 999;
+}
+
 // Create a campaign button
 .box-2 {
 	backdrop-filter: blur(16px) saturate(180%);
