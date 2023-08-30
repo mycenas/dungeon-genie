@@ -29,6 +29,8 @@
 
 .character-flip-card:hover .character-flip-card-inner {
 	transform: rotateY(180deg);
+	box-shadow: 0 0 50px #c2c9e7;
+	transition: 0.6s, box-shadow 0.6s;
 }
 
 .character-flip-card-front,
