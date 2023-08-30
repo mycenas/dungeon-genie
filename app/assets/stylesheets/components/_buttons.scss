@@ -118,10 +118,11 @@
 	border: 3px solid #00d7c3;
 }
 
-#glassButton {
+.glass-button {
 	display: inline-block;
-	padding: 10px 5px;
-	width: 100px;
+	margin-top: 15px;
+	padding: 15px 5px;
+	width: 200px;
 	border: 0;
 	text-decoration: none;
 	border-radius: 15px;
@@ -135,6 +136,28 @@
 	text-transform: uppercase;
 }
 
-#glassButton:hover {
+.glass-button:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.glass-button-select {
+	display: inline-block;
+	margin-top: 15px;
+	padding: 15px 5px;
+	width: 200px;
+	border: 0;
+	text-decoration: none;
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(30px);
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 14px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.glass-button-select:hover {
 	background-color: rgba(255, 255, 255, 0.2);
 }
