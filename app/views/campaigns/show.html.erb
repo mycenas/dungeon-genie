@@ -7,13 +7,7 @@
 
   <div class="campaign-description">
     <p><%=@campaign.campaign_option.description%></p>
-    <%= button_to 'Start Session', campaign_sessions_path(@campaign), class: "start-session-btn" %>
-  </div>
-</div>
-
-<div class="return-btn-container">
-  <div class="main-button" onclick="window.location='<%= url_for(my_campaigns_path) %>'" style="cursor: pointer;">
-    <span>Return to My Campaigns</span>
+    <%= button_to 'Start Session', campaign_sessions_path(@campaign), class: "glass-button" %>
   </div>
 </div>
 
