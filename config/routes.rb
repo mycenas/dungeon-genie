@@ -25,6 +25,11 @@ Rails.application.routes.draw do
   get '/campaigns/:campaign_id/campaign_sessions/:id', to: 'campaign_sessions#show', as: 'campaign_session'
   post 'campaign_sessions/send_message', to: 'campaign_sessions#send_message'
 
+  # messages
+  resources :campaign_sessions, only: :show do
+    resources :messages, only: :create
+  end
+
   #invitations
   # post 'campaigns/:campaign_id/invitations', to: 'campaigns#create', as: 'invitations'
   # post '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'

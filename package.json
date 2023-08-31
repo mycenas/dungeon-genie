@@ -1,10 +1,11 @@
 {
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@rails/actioncable": "^7.0.7-2",
     "dat.gui": "^0.7.9",
     "three": "^0.155.0",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "@hotwired/stimulus": "^3.2.2"
+    "webpack-cli": "^5.1.4"
   },
   "name": "dungeon-genie",
   "description": "Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team. # dungeon-genie",
@@ -33,5 +34,5 @@
     "parcel": "^2.9.3",
     "parcel-bundler": "^1.8.1"
   },
-    "jquery": "^3.7.0"
-  }
+  "jquery": "^3.7.0"
+}
