@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const wizardUrl = new URL("./../wizard.glb", import.meta.url);
+const wizardUrl = new URL("./../throwing.glb", import.meta.url);
 const dungeonMasterTable = new URL("./../table.glb", import.meta.url);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const scene = new THREE.Scene();
@@ -48,8 +48,6 @@ export default class extends Controller {
 
     gltflLoader.load(wizardUrl, function (gltf) {
       const model = gltf.scene;
-      // Scale the model down by half.
-      model.scale(0.5, 0.5, 0.5);
       scene.add(model);
     });
 
