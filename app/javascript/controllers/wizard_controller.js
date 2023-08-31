@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const wizardUrl = new URL("./../throwing.glb", import.meta.url);
+const wizardUrl = new URL("./../waving.glb", import.meta.url);
 const dungeonMasterTable = new URL("./../table.glb", import.meta.url);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const scene = new THREE.Scene();
@@ -21,11 +21,12 @@ export default class extends Controller {
     wizardContainer.appendChild(renderer.domElement);
 
     // SCENE
-    backgroundTexture.colorSpace = THREE.sRGBEncoding;
+
+    backgroundTexture.encoding = THREE.sRGBEncoding;
     scene.background = backgroundTexture;
 
     // CAMERA
-    const camera = new THREE.PerspectiveCamera (
+    const camera = new THREE.PerspectiveCamera(
       10,
       window.innerWidth / window.innerHeight,
       0.3,
@@ -45,20 +46,34 @@ export default class extends Controller {
     scene.add(enchantedBlue);
 
     // ANIMATIONS & LOADING WIZARD
+    let mixer;
 
-    gltflLoader.load(wizardUrl, function (gltf) {
-      const model = gltf.scene;
-      scene.add(model);
-    });
-
-    gltflLoader.load(dungeonMasterTable, function (gltf) {
+    gltflLoader.load(wizardUrl.href, function (gltf) {
       const model = gltf.scene;
       model.traverse(function (child) {
         if (child.isMesh) child.castShadow = true;
       });
       scene.add(model);
-      model.position.set(-0.5, -2, -4);
-      model.rotation.x = 15 * (Math.PI / 180); // Rotate table 15 degrees
+      model.position.set(0, 0.4, -10);
+      model.scale.set(1.4, 1.4, 1.4);
+
+      mixer = new THREE.AnimationMixer(model);
+      gltf.animations.forEach(function (clip) {
+        const action = mixer.clipAction(clip);
+        action.play();
+      });
+    });
+
+    // LOADING TABLE
+    gltflLoader.load(dungeonMasterTable.href, function (gltf) {
+      const model = gltf.scene;
+      model.traverse(function (child) {
+        if (child.isMesh) child.castShadow = true;
+      });
+      scene.add(model);
+      model.scale.x = 2;
+      model.position.set(-0.5, 1, -4);
+      model.rotation.x = 65 * (Math.PI / 180); // Rotate table 15 degrees
     });
 
     const clock = new THREE.Clock(); // https://threejs.org/docs/#api/en/core/Clock
