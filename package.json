@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@rails/actioncable": "^7.0.7-2",
+    "@rails/actioncable": "^7.0.7",
+    "@hotwired/turbo-rails": "^7.3.0",
     "dat.gui": "^0.7.9",
     "three": "^0.155.0",
     "webpack": "^5.88.2",
