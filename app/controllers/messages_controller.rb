@@ -12,33 +12,23 @@ class MessagesController < ApplicationController
         render_to_string(partial: "message", locals: {message: @message})
       )
 
-      # ChatGPT integration starts here
-      client = OpenAI::Client.new(api_key: ENV['OPENAI_ACCESS_TOKEN'])
-
-      dm_message = [{ role: "user", content: @message.content }]
-
-      chat_response = client.chat(
-        parameters: {
-          model: "gpt-3.5-turbo",
-          messages: dm_message,
-          temperature: 0.7
-        }
+       # Using ChatService here
+      chat_service = ChatService.new(
+        message: @message.content,
+        campaign_description: @campaign.campaign_option.description,
       )
 
-      generated_text = chat_response.dig("choices", 0, "message", "content")
+      generated_text = chat_service.call
 
-      # Create a new message with the generated content from ChatGPT
       ai_message = Message.new(content: generated_text)
       ai_message.campaign_session = @campaign_session
-      ai_message.user = current_user
+      ai_message.user = current_user # Change this to Dungeon Genie user later on
       ai_message.save
 
-      # Broadcast the new AI-generated message
       CampaignSessionChannel.broadcast_to(
         @campaign_session,
         render_to_string(partial: "message", locals: { message: ai_message })
       )
-      # ChatGPT integration ends here
 
       head :ok
     else
