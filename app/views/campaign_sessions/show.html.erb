@@ -1,24 +1,32 @@
-<div class="container chatroom" 
-  data-controller="campaign-session-subscription"
-  data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
->
-  <center><h2><%= @campaign.campaign_option.name %></h2>
+<center>
+  <h2><%= @campaign.campaign_option.name %></h2>
   <h3>Location: <%= @campaign.campaign_option.location %></h3>
   <p>Campaign Session <%= @campaign_session.id %></p>
+</center>
 
-  <div class="messages" data-campaign-session-subscription-target="messages">
-    <% @campaign_session.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-    <% end %>
+<div id="chatbox" class="chatContainer" 
+     data-controller="campaign-session-subscription"
+     data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
+     data-campaign-description="<%= @campaign.campaign_option.description %>">
+  
+  <div class="chatDisplay">
+    <div id="messages" data-campaign-session-subscription-target="messages">
+      <% @campaign_session.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
   </div>
 
-
   <%= simple_form_for [@campaign_session, @message],
-                      html: { data: { action: "turbo:submit-end->campaign-session-subscription#resetForm" }, class: "d-flex" } do |f| %>
-    <%= f.input :content,
-                label: false,
-                placeholder: "Speak to Dungeon Genie",
-                wrapper_html: { class: "flex-grow-1" } %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+                      html: { data: { action: "turbo:submit-end->campaign-session-subscription#resetForm" }, 
+                              class: "messageForm" } do |f| %>
+    
+    <div class="input-wrapper">
+      <%= f.input :content, 
+                  label: false, 
+                  placeholder: "What's your next move, adventurer?", 
+                  input_html: { class: "messageInput" } %>
+      <button type="submit" class="glass-button-send">Speak</button>
+    </div>
   <% end %>
 </div>
