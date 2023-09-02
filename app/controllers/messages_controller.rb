@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.campaign_session = @campaign_session
     @message.user = current_user
+
     # Fetch existing messages from the database
     existing_messages = @campaign_session.messages.order(:created_at).map do |msg|
       { role: msg.user == current_user ? "user" : "system", content: msg.content }
