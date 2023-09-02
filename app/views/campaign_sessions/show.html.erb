@@ -38,3 +38,21 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("turbo:submit-end", function() {
+    const messageInput = document.querySelector(".messageInput");
+    messageInput.value = "";
+    scrollToBottom();
+  });
+  
+  // Function to scroll to the bottom
+  function scrollToBottom() {
+    var chatbox = document.getElementById("messages");
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+  // Call the function when the page loads
+  window.onload = scrollToBottom;
+  // auto-scroll
+  scrollToBottom();
+</script>
