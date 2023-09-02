@@ -6,7 +6,7 @@
     </li>
     <% if user_signed_in? %>
         <li class="nav-item">
-          <span class="navbar-text">Welcome, <%= current_user.email %>!</span>
+          <span class="navbar-text">Welcome, <%= current_user.email.split(/@/)[0].capitalize %>!</span>
         </li>
     <% end %>
   </ul>

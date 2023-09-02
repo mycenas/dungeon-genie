@@ -2,7 +2,13 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 # dungeon-genie
 
-# Start App for chat and model:
+HOWTO:
+
+1. In terminal, please do bundle install
+2. Then yarn install
+3. Then to load up the three.js file server, enter parcel ./src/index.html
+
+# Start App for chat:
 
 1. yarn install
 2. bundle install

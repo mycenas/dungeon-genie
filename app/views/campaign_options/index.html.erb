@@ -1,13 +1,25 @@
-<div class="campaignoptions-container">
-  <div class="campaignoptions-card-container">
-    <% if @campaign_options.any? %>
-      <% @campaign_options.each do |campaign| %>
-        <div class="campaignoptions-card">
-            <span class="campaign-name"><%= campaign.name %></span>
-            <%= image_tag campaign.image_url %>
-            <%= button_to 'Select Campaign', new_campaign_path(campaign_id: campaign.id), class: "select-button" %>
+<div class="campaign-card-container">
+  <% if @campaign_options.any? %>
+    <% @campaign_options.each do |campaign| %>
+      <div class="campaign-card">
+        <div class="face face1">
+          <div class="campaign-figure">
+            <div class="img-container">
+              <%= image_tag campaign.image_url %>
+            </div>
+          </div>
+          <div class="campaign-figcaption"><%= campaign.name %></div>
         </div>
-      <% end %>
+
+        <div class="face face2">
+          <div class="campaign-content">
+            <%= campaign.description %>
+          </div>
+            <%= button_to 'Select Campaign', new_campaign_path(campaign_id: campaign.id), class: "glass-button-select" %>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% else %>
+    <p>You currently have no campaigns.</p>
+  <% end %>
 </div>
