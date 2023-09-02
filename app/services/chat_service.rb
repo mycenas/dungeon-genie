@@ -1,12 +1,20 @@
 class ChatService
-  attr_reader :message, :campaign_description
+  attr_reader :message, :campaign_description, :message_history
 
-  def initialize(message:, campaign_description:)
+  def initialize(message:, campaign_description:, message_history: [])
     @message = message
     @campaign_description = campaign_description
+    @message_history = message_history
   end
 
   def call
+    if message_history.empty?
+      messages = dm_prompts.map { |prompt| { role: "system", content: prompt } }
+      messages << { role: "system", content: "Campaign Description: #{campaign_description}" }
+    else
+      messages = message_history.dup
+    end
+
     messages = dm_prompts.map do |prompt|
       { role: "system", content: prompt}
     end
