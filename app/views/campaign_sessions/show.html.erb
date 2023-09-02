@@ -6,11 +6,13 @@
       <h2><%= @campaign.campaign_option.name %></h2>
       <h3>Campaign Session <%= @campaign_session.id %></h3>
     </center>
-
+  </div>
+    <%= render "shared/wizard"%>
     <div id="chatbox" class="chatContainer"
-         data-controller="campaign-session-subscription"
-         data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
-         data-campaign-description="<%= @campaign.campaign_option.description %>">
+        data-controller="campaign-session-subscription"
+        data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
+        data-campaign-description="<%= @campaign.campaign_option.description %>">
+
 
       <div class="chatDisplay">
         <div id="messages" data-campaign-session-subscription-target="messages">
