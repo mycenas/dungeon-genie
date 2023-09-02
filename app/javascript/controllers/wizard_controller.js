@@ -21,17 +21,16 @@ export default class extends Controller {
     wizardContainer.appendChild(renderer.domElement);
 
     // SCENE
-
     backgroundTexture.encoding = THREE.sRGBEncoding;
     scene.background = backgroundTexture;
 
-    // CAMERA
+    // CAMERA - requires 4 arguments
     const camera = new THREE.PerspectiveCamera(
       10,
       window.innerWidth / window.innerHeight,
       0.3,
       1000
-    ); // requires 4 arguments
+    );
     camera.position.set(0, 3, 90);
 
     // DIRECTIONAL LIGHTING
