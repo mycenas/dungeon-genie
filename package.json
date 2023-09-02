@@ -1,10 +1,13 @@
 {
 	"dependencies": {
 		"@hotwired/stimulus": "^3.2.2",
-		"@rails/actioncable": "^7.0.7",
 		"@hotwired/turbo-rails": "^7.3.0",
+		"@rails/actioncable": "^7.0.7",
+		"canon": "^0.4.1",
 		"dat.gui": "^0.7.9",
+		"stats.js": "^0.17.0",
 		"three": "^0.155.0",
+		"threejs-dice": "^1.1.0",
 		"webpack": "^5.88.2",
 		"webpack-cli": "^5.1.4"
 	},
