@@ -1,13 +1,3 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body.current-page {
-  overflow: hidden;
-}
-
 .wizard-container {
   height: 100vh;
   width: 100vw;
@@ -41,4 +31,3 @@ body.current-page {
   left: 30%;
   z-index: 999;
 }
-/* how do we make the chatbox responsive to resizing? */
