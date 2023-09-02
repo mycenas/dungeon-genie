@@ -3,4 +3,5 @@ class CampaignSessionChannel < ApplicationCable::Channel
     campaign_session = CampaignSession.find(params[:id])
     stream_for campaign_session
   end
+
 end

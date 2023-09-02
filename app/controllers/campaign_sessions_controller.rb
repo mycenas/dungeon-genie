@@ -16,20 +16,8 @@ class CampaignSessionsController < ApplicationController
     @message = Message.new
   end
 
-  # def send_message
-  #   chat_service = ChatService.new(
-  #       message: chat_params[:message], 
-  #       campaign_description: chat_params[:campaign_description]
-  #   )
-  #   response = chat_service.call
-  #   render json: { response: response }
-  # end
 
   private
-
-  # def chat_params
-  #   params.permit(:message, :campaign_description, campaign_session: {})
-  # end
 
   def find_campaign
     @campaign = Campaign.find_by(id: params[:campaign_id])

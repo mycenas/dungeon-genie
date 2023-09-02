@@ -1,7 +1,4 @@
 <div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.email %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+<strong><p class="message-name"><%= message.user.email.split(/@/)[0].capitalize %>:</strong>
+<p class="message-content"><%= message.content %></p>
 </div>

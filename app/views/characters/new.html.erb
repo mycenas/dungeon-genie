@@ -28,6 +28,7 @@
 
         <div class="form-field">
           <%= f.label :character_class %>
+            <%= button_tag "Open Modal", type: 'button', id: 'open-modal-button' %>
           <%= f.select :character_class_id, CharacterClass.all.collect { |c| [c.name, c.id] } %>
         </div>
 
@@ -45,6 +46,15 @@
     </div>
   </div>
 </div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <p>ADD CLASS TABS HERE</p>
+    <button id="close-modal-button" class="close-button">Close</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
 
 <script>
   $(document).on('turbolinks:load', function() {
@@ -69,4 +79,21 @@
     }
   });
 });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const openModalButton = document.getElementById("open-modal-button");
+    const closeModalButton = document.getElementById("close-modal-button");
+    const modal = document.getElementById("modal");
+    openModalButton.addEventListener("click", function () {
+      console.log("test");
+      modal.style.display = "block";
+    });
+    closeModalButton.addEventListener("click", function (event) {
+      if (event.target === closeModalButton) {
+        modal.style.display = "none";
+      }
+    });
+  });
 </script>

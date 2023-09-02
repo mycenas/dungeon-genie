@@ -14,12 +14,14 @@
 .chatDisplay {
 	padding: 10px;
 	overflow-y: auto;
-	border: 1px solid #3b3b3b;
+	border: 1px solid #1a2038;
 	text-align: left;
 	width: 800px;
 	height: 250px;
 	border-radius: 15px;
-	background-color: #785a9c2b;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: #0e1328be;
 	margin-bottom: 10px;
 }
 
@@ -38,10 +40,12 @@
 	width: 100%;
 	padding: 10px;
 	padding-right: 80px;
-	background-color: #9980b72b;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: #0e1328be;
 	color: #fff;
 	border-radius: 15px;
-	border: 1px solid #3b3b3b;
+	border: 1px solid #1a2038;
 }
 
 .glass-button-send {
@@ -54,7 +58,7 @@
 	border: 0;
 	text-decoration: none;
 	border-radius: 15px;
-	background-color: #1a2038a6;
+	background-color: #925bff79;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(30px);
 	color: rgba(255, 255, 255, 0.8);
@@ -65,5 +69,19 @@
 }
 
 .glass-button-send:hover {
-	background-color: #925bff2d;
+	background-color: #5d2ebd;
+}
+
+.message-name {
+	font-size: 15px;
+	color: #c2c9e7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin: 0px;
+}
+
+.message-content {
+	font-size: 15px;
+	color: #c2c9e7;
+	line-height: 1.7;
 }
