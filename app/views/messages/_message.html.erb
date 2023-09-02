@@ -1,6 +1,4 @@
 <div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.email.split(/@/)[0].capitalize %></span>:</strong>
-  </small>
-  <p><%= message.content %></p>
+<strong><p class="message-name"><%= message.user.email.split(/@/)[0].capitalize %>:</strong>
+<p class="message-content"><%= message.content %></p>
 </div>

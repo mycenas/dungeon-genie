@@ -1,18 +1,17 @@
 <div class="wizard-container">
   <div class="wizard">
-  <div class="wizard-background">
-  </div>
+    <div class="wizard-background">
+    </div>
     <center>
       <h2><%= @campaign.campaign_option.name %></h2>
-      <h3>Location: <%= @campaign.campaign_option.location %></h3>
-      <p>Campaign Session <%= @campaign_session.id %></p>
+      <h3>Campaign Session <%= @campaign_session.id %></h3>
     </center>
 
-    <div id="chatbox" class="chatContainer" 
-        data-controller="campaign-session-subscription"
-        data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
-        data-campaign-description="<%= @campaign.campaign_option.description %>">
-      
+    <div id="chatbox" class="chatContainer"
+         data-controller="campaign-session-subscription"
+         data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
+         data-campaign-description="<%= @campaign.campaign_option.description %>">
+
       <div class="chatDisplay">
         <div id="messages" data-campaign-session-subscription-target="messages">
           <% @campaign_session.messages.each do |message| %>
@@ -22,16 +21,19 @@
       </div>
 
       <%= simple_form_for [@campaign_session, @message],
-                          html: { data: { action: "turbo:submit-end->campaign-session-subscription#resetForm" }, 
-                                  class: "messageForm" } do |f| %>
-        
+                          html: {
+                                data: { action: "turbo:submit-end->campaign-session-subscription#resetForm" },
+                                class: "messageForm"
+                          } do |f| %>
+
         <div class="input-wrapper">
-          <%= f.input :content, 
-                      label: false, 
-                      placeholder: "What's your next move, adventurer?", 
+          <%= f.input :content,
+                      label: false,
+                      placeholder: "What's your next move, adventurer?",
                       input_html: { class: "messageInput" } %>
           <button type="submit" class="glass-button-send">Speak</button>
         </div>
+
       <% end %>
     </div>
   </div>
