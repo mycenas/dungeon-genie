@@ -2639,6 +2639,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001517:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001522.tgz"
   integrity sha512-TKiyTVZxJGhsTszLuzb+6vUZSjVOAhClszBr2Ta2k9IwtNBT/4dzmL6aywt0HCgEZlmwJzXJd8yNiob6HgwTRg==
 
+canon@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/canon/-/canon-0.4.1.tgz#defcb0af0d51dbe283d7031704e22891627b59c8"
+  integrity sha512-jtHP+Ws1Rgwgq4lsuQE5u50N0ph+OgdxzRWHjBpF5UABHKgEqUbgM2f7MMYKmVGPTg3brlcw5Q5KXTgA+Cb7xw==
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
@@ -6730,6 +6735,11 @@ static-module@^2.2.0:
     shallow-copy "~0.0.1"
     static-eval "^2.0.0"
     through2 "~2.0.3"
+
+stats.js@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/stats.js/-/stats.js-0.17.0.tgz#b1c3dc46d94498b578b7fd3985b81ace7131cc7d"
+  integrity sha512-hNKz8phvYLPEcRkeG1rsGmV5ChMjKDAWU7/OJJdDErPBNChQXxCo3WZurGpnWc6gZhAzEPFad1aVgyOANH1sMw==
 
 statuses@2.0.1:
   version "2.0.1"
