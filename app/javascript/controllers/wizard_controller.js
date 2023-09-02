@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const wizardUrl = new URL("./../pointing.glb", import.meta.url);
+const wizardUrl = new URL("./../waving.glb", import.meta.url);
 const dungeonMasterTable = new URL("./../table.glb", import.meta.url);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const scene = new THREE.Scene();
@@ -21,17 +21,16 @@ export default class extends Controller {
     wizardContainer.appendChild(renderer.domElement);
 
     // SCENE
-
     backgroundTexture.encoding = THREE.sRGBEncoding;
     scene.background = backgroundTexture;
 
-    // CAMERA
+    // CAMERA - requires 4 arguments
     const camera = new THREE.PerspectiveCamera(
       10,
       window.innerWidth / window.innerHeight,
       0.3,
       1000
-    ); // requires 4 arguments
+    );
     camera.position.set(0, 3, 90);
 
     // DIRECTIONAL LIGHTING
@@ -54,7 +53,8 @@ export default class extends Controller {
         if (child.isMesh) child.castShadow = true;
       });
       scene.add(model);
-      model.position.set(0, -1.2, -10);
+      model.position.set(0, 0.4, -10);
+      model.scale.set(1.4, 1.4, 1.4);
 
       mixer = new THREE.AnimationMixer(model);
       gltf.animations.forEach(function (clip) {
@@ -70,8 +70,9 @@ export default class extends Controller {
         if (child.isMesh) child.castShadow = true;
       });
       scene.add(model);
-      model.position.set(-0.5, -2, -4);
-      model.rotation.x = 15 * (Math.PI / 180); // Rotate table 15 degrees
+      model.scale.x = 2;
+      model.position.set(-0.5, 1, -4);
+      model.rotation.x = 65 * (Math.PI / 180); // Rotate table 15 degrees
     });
 
     const clock = new THREE.Clock(); // https://threejs.org/docs/#api/en/core/Clock

@@ -1,7 +1,33 @@
 .wizard-container {
   height: 100vh;
   width: 100vw;
-  background-size: cover;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.wizard {
+  flex: 1;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.wizard-background {
+  background-image: url('background-image');
+  background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.chatbox {
+  position: fixed;
+  top: 65%;
+  left: 30%;
+  z-index: 999;
 }
