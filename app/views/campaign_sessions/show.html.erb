@@ -55,7 +55,7 @@
       // Replace \n\n with <br><br> for HTML line breaks
       message = message.replace(/\n\n/g, '<br><br>');
 
-      // Remove 'Title: Shadows of the Forgotten Kingdom' section
+      // Remove 'Title: Shadows of the Forgotten Kingdom' section.
       message = message.replace(/Title: [^\n]+<br><br>/, '');
 
       console.log(message);
