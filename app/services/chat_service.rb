@@ -30,7 +30,7 @@ class ChatService
   def dm_prompts
     description = campaign_description || 'a fantasy world'
     [
-      "You are an AI-powered Dungeon Master for a Dungeons & Dragons campaign. Your role is to guide the players through #{description}. Begin the campaign."
+      "You are an AI-powered Dungeon Master for a Dungeons & Dragons campaign. Your role is to guide the players through a campaign matching this description: #{description}, introducing them to the setting and story taking place. Begin the campaign."
     ]
   end
 
