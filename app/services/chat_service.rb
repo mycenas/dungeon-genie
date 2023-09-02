@@ -6,23 +6,33 @@ class ChatService
     @campaign_description = campaign_description
   end
 
+  # def call
+  #   messages = dm_prompts.map do |prompt|
+  #     { role: "system", content: prompt}
+  #   end
+
+  #   messages << { role: "system", content: "Campaign Description: #{campaign_description}"}
+  #   messages << { role: "user", content: message}
+
+  #   response = client.chat(
+  #     parameters: {
+  #       model: "gpt-4",
+  #       messages: messages,
+  #       temperature: 0.7,
+  #     }
+  #   )
+
+  #   response.dig("choices", 0, "message", "content")
+  # end
+
   def call
-    messages = dm_prompts.map do |prompt|
-      { role: "system", content: prompt}
-    end
-
-    messages << { role: "system", content: "Campaign Description: #{campaign_description}"}
-    messages << { role: "user", content: message}
-
-    response = client.chat(
-      parameters: {
-        model: "gpt-4",
-        messages: messages,
-        temperature: 0.7,
-      }
+    response = OpenAI::Completion.create(
+      engine: "text-davinci-002",
+      prompt: dm_prompts,
+      max_tokens: 100
     )
 
-    response.dig("choices", 0, "message", "content")
+    response.choices.first.text.strip
   end
 
   private
