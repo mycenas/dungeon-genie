@@ -6,6 +6,7 @@ class Character < ApplicationRecord
   belongs_to :user
   belongs_to :race
   belongs_to :character_class
+  has_many :campaigns
   has_and_belongs_to_many :spells, join_table: 'character_spells'
   has_and_belongs_to_many :stats, join_table: 'character_stats'
   serialize :equipment, Array

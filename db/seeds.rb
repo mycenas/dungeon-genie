@@ -42,19 +42,6 @@ echoes_campaign = CampaignOption.create(name: "Echoes of the Crystalline Spire",
 whispers_campaign = CampaignOption.create(name: "Whispers in the Sandsea", location: "The Sandsea Deserts", description: "Journey through the endless Sandsea dunes where voices carried by the wind tell tales of buried prophecies and forgotten empires. Encounter mystical oases, sandstorms, and riddles hidden beneath the golden grains.", image_url: "whispers_in_the_sandsea.png")
 ironbound_campaign = CampaignOption.create(name: "The Ironbound Prophecy", location: "The metropolis of Gearford", description: "Gearford, a city forged in iron in a world of magic and myth, faces a prophecy as old as rust. Players must navigate intrigue in the bustling streets, secretive guilds, and the city's underbelly, where magic and machinery collide. Will they align with destiny or rewrite the future?", image_url: "the_ironbound_prophecy.png")
 
-# Campaign Seeds
-
-User.all.each do |user|
-  sampled_campaign_options = CampaignOption.order("RANDOM()").limit(1)  # This will fetch 1 random campaign options
-
-  sampled_campaign_options.each do |option|
-    Campaign.create(
-      user: user,
-      campaign_option: option
-    )
-  end
-end
-
 # Character Seeds
 
 def determine_image_path(race_name, class_name)
@@ -223,4 +210,21 @@ if user_marnie
     stat = Stats.find_or_create_by(name: name)
     CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
   end
+
+  # Campaign Seeds
+
+  User.all.each do |user|
+    sampled_campaign_options = CampaignOption.order("RANDOM()").limit(1).first  # This will fetch 1 random campaign option
+    sampled_character = user.characters.order("RANDOM()").first  # This will fetch 1 random character for the user
+
+    # Skip if the user has no characters or if there are no campaign options
+    next if sampled_character.nil? || sampled_campaign_options.nil?
+
+    Campaign.create(
+      user: user,
+      campaign_option: sampled_campaign_options,
+      character: sampled_character
+    )
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_020546) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_001800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,7 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_020546) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "campaign_option_id", null: false
+    t.bigint "character_id"
     t.index ["campaign_option_id"], name: "index_campaigns_on_campaign_option_id"
+    t.index ["character_id"], name: "index_campaigns_on_character_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -182,6 +184,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_020546) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "campaign_sessions", "campaigns"
   add_foreign_key "campaigns", "campaign_options"
+  add_foreign_key "campaigns", "characters"
   add_foreign_key "campaigns", "users"
   add_foreign_key "character_spells", "characters"
   add_foreign_key "character_spells", "spells"
