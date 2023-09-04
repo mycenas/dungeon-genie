@@ -42,189 +42,116 @@ echoes_campaign = CampaignOption.create(name: "Echoes of the Crystalline Spire",
 whispers_campaign = CampaignOption.create(name: "Whispers in the Sandsea", location: "The Sandsea Deserts", description: "Journey through the endless Sandsea dunes where voices carried by the wind tell tales of buried prophecies and forgotten empires. Encounter mystical oases, sandstorms, and riddles hidden beneath the golden grains.", image_url: "whispers_in_the_sandsea.png")
 ironbound_campaign = CampaignOption.create(name: "The Ironbound Prophecy", location: "The metropolis of Gearford", description: "Gearford, a city forged in iron in a world of magic and myth, faces a prophecy as old as rust. Players must navigate intrigue in the bustling streets, secretive guilds, and the city's underbelly, where magic and machinery collide. Will they align with destiny or rewrite the future?", image_url: "the_ironbound_prophecy.png")
 
-# Character Seeds
+  # Character Seeds
 
-def determine_image_path(race_name, class_name)
-  "#{race_name.downcase}_#{class_name.downcase}.png"
-end
-
-# David
-
-user_david = User.find_by(email: "david@dungeongenie.com")
-if user_david
-  character = Character.create!(
-    name: "The Dark Urge",
-    user: user_david,
-    level: 1,
-    race_id: Race.where(name: "Dragonborn").first.id,
-    character_class_id: CharacterClass.where(name: "Fighter").first.id,
-    max_hp: 10,
-    current_hp: 10,
-    armor_class: "Heavy Armor",
-    gender: "Male",
-    languages: ["Common", "Draconic"],
-    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    image_path: "dragonborn_fighter.png"
-  )
-
-  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [17, 14, 10, 12, 8, 14]
-
-  stats_names.each_with_index do |name, index|
-    stat = Stats.find_or_create_by(name: name)
-    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
-  end
-end
-
-# Hieu
-
-user_hieu = User.find_by(email: "hieu@dungeongenie.com")
-if user_hieu
-  character = Character.create!(
-    name: "Giwu",
-    user: user_hieu,
-    level: 1,
-    race_id: Race.where(name: "Hill Dwarf").first.id,
-    character_class_id: CharacterClass.where(name: "Cleric").first.id,
-    max_hp: 12,
-    current_hp: 12,
-    armor_class: "Heavy Armor",
-    gender: "Male",
-    languages: ["Common", "Dwarvish", "Nerakese"],
-    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    image_path: "hilldwarf_cleric.png"
-  )
-
-  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [10, 8, 16, 15, 13, 13]
-
-  stats_names.each_with_index do |name, index|
-    stat = Stats.find_or_create_by(name: name)
-    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
-  end
-end
-
-# Brian
-
-user_brian = User.find_by(email: "brian@dungeongenie.com")
-if user_brian
-  character = Character.create!(
-    name: "Galgadot",
-    user: user_brian,
-    level: 1,
-    race_id: Race.where(name: "Tiefling").first.id,
-    character_class_id: CharacterClass.where(name: "Warlock").first.id,
-    max_hp: 7,
-    current_hp: 7,
-    armor_class: "Light Armor",
-    gender: "Female",
-    languages: ["Common", "Infernal"],
-    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    image_path: "tiefling_warlock.png"
-  )
-
-  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [13, 8, 8, 9, 11, 11]
-
-  stats_names.each_with_index do |name, index|
-    stat = Stats.find_or_create_by(name: name)
-    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
-  end
-end
-
-# Marnie
-
-user_marnie = User.find_by(email: "marnie@dungeongenie.com")
-if user_marnie
-  character = Character.create!(
-    name: "Twig",
-    user: user_marnie,
-    level: 1,
-    race_id: Race.where(name: "Wood Elf").first.id,
-    character_class_id: CharacterClass.where(name: "Druid").first.id,
-    max_hp: 10,
-    current_hp: 10,
-    armor_class: "Medium Armor",
-    gender: "Female",
-    languages: ["Common", "Druidic", "Elvish"],
-    equipment: ["Herbalism Kit"],
-    image_path: "woodelf_druid.png"
-  )
-
-  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [8, 15, 14, 10, 16, 12]
-
-  stats_names.each_with_index do |name, index|
-    stat = Stats.find_or_create_by(name: name)
-    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
-  end
-end
-
-user_marnie = User.find_by(email: "marnie@dungeongenie.com")
-if user_marnie
-  character = Character.create!(
-    name: "Giwu",
-    user: user_marnie,
-    level: 1,
-    race_id: Race.where(name: "Hill Dwarf").first.id,
-    character_class_id: CharacterClass.where(name: "Cleric").first.id,
-    max_hp: 12,
-    current_hp: 12,
-    armor_class: "Heavy Armor",
-    gender: "Male",
-    languages: ["Common", "Dwarvish", "Nerakese"],
-    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    image_path: "woodelf_druid.png"
-  )
-
-  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [10, 8, 16, 15, 13, 13]
-
-  stats_names.each_with_index do |name, index|
-    stat = Stats.find_or_create_by(name: name)
-    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
-  end
-end
-
-user_marnie = User.find_by(email: "marnie@dungeongenie.com")
-if user_marnie
-  character = Character.create!(
-    name: "Galgadot",
-    user: user_marnie,
-    level: 1,
-    race_id: Race.where(name: "Tiefling").first.id,
-    character_class_id: CharacterClass.where(name: "Warlock").first.id,
-    max_hp: 7,
-    current_hp: 7,
-    armor_class: "Light Armor",
-    gender: "Female",
-    languages: ["Common", "Infernal"],
-    equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
-    image_path: "tiefling_warlock.png"
-  )
-
-  stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-  stats_values = [13, 8, 8, 9, 11, 11]
-
-  stats_names.each_with_index do |name, index|
-    stat = Stats.find_or_create_by(name: name)
-    CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+  def determine_image_path(race_name, class_name)
+    "#{race_name.downcase}_#{class_name.downcase}.png"
   end
 
-  # Campaign Seeds
-
-  User.all.each do |user|
-    sampled_campaign_options = CampaignOption.order("RANDOM()").limit(1).first  # This will fetch 1 random campaign option
-    sampled_character = user.characters.order("RANDOM()").first  # This will fetch 1 random character for the user
-
-    # Skip if the user has no characters or if there are no campaign options
-    next if sampled_character.nil? || sampled_campaign_options.nil?
-
-    Campaign.create(
-      user: user,
-      campaign_option: sampled_campaign_options,
-      character: sampled_character
+  # David
+  user_david = User.find_by(email: "david@dungeongenie.com")
+  if user_david
+    character = Character.create!(
+      name: "The Dark Urge",
+      user: user_david,
+      level: 1,
+      race_id: Race.where(name: "Dragonborn").first.id,
+      character_class_id: CharacterClass.where(name: "Fighter").first.id,
+      max_hp: 10,
+      current_hp: 10,
+      armor_class: "Heavy Armor",
+      gender: "Male",
+      languages: ["Common", "Draconic"],
+      equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+      image_path: "dragonborn_fighter.png"
     )
+
+    stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+    stats_values = [17, 14, 10, 12, 8, 14]
+
+    stats_names.each_with_index do |name, index|
+      stat = Stats.find_or_create_by(name: name)
+      CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+    end
   end
 
-end
+  # Hieu
+  user_hieu = User.find_by(email: "hieu@dungeongenie.com")
+  if user_hieu
+    character = Character.create!(
+      name: "Giwu",
+      user: user_hieu,
+      level: 1,
+      race_id: Race.where(name: "Hill Dwarf").first.id,
+      character_class_id: CharacterClass.where(name: "Cleric").first.id,
+      max_hp: 12,
+      current_hp: 12,
+      armor_class: "Heavy Armor",
+      gender: "Male",
+      languages: ["Common", "Dwarvish", "Nerakese"],
+      equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+      image_path: "hilldwarf_cleric.png"
+    )
+
+    stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+    stats_values = [10, 8, 16, 15, 13, 13]
+
+    stats_names.each_with_index do |name, index|
+      stat = Stats.find_or_create_by(name: name)
+      CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+    end
+  end
+
+  # Brian
+  user_brian = User.find_by(email: "brian@dungeongenie.com")
+  if user_brian
+    character = Character.create!(
+      name: "Galgadot",
+      user: user_brian,
+      level: 1,
+      race_id: Race.where(name: "Tiefling").first.id,
+      character_class_id: CharacterClass.where(name: "Warlock").first.id,
+      max_hp: 7,
+      current_hp: 7,
+      armor_class: "Light Armor",
+      gender: "Female",
+      languages: ["Common", "Infernal"],
+      equipment: ["Backpack", "Crowbar", "Hammer", "10 torches", "Tinderbox", "10 days of rations", "A waterskin", "50 ft of rope"],
+      image_path: "tiefling_warlock.png"
+    )
+
+    stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+    stats_values = [13, 8, 8, 9, 11, 11]
+
+    stats_names.each_with_index do |name, index|
+      stat = Stats.find_or_create_by(name: name)
+      CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+    end
+  end
+
+  # Marnie
+  user_marnie = User.find_by(email: "marnie@dungeongenie.com")
+  if user_marnie
+    character = Character.create!(
+      name: "Twig",
+      user: user_marnie,
+      level: 1,
+      race_id: Race.where(name: "Wood Elf").first.id,
+      character_class_id: CharacterClass.where(name: "Druid").first.id,
+      max_hp: 10,
+      current_hp: 10,
+      armor_class: "Medium Armor",
+      gender: "Female",
+      languages: ["Common", "Druidic", "Elvish"],
+      equipment: ["Herbalism Kit"],
+      image_path: "woodelf_druid.png"
+    )
+
+    stats_names = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+    stats_values = [8, 15, 14, 10, 16, 12]
+
+    stats_names.each_with_index do |name, index|
+      stat = Stats.find_or_create_by(name: name)
+      CharacterStats.create!(character: character, stats_id: stat.id, value: stats_values[index])
+    end
+  end
