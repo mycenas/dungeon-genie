@@ -11,8 +11,18 @@
     <div id="chatbox" class="chatContainer"
         data-controller="campaign-session-subscription"
         data-campaign-session-subscription-campaign-session-id-value="<%= @campaign_session.id %>"
-        data-campaign-description="<%= @campaign.campaign_option.description %>">
-
+        data-campaign-description="<%= @campaign.campaign_option.description %>
+        data-character-name="<%= @campaign.character.name %>"
+        data-character-level="<%= @campaign.character.level %>"
+        data-character-race-id="<%= @campaign.character.race_id %>"
+        data-character-class-id="<%= @campaign.character.character_class_id %>"
+        data-character-max-hp="<%= @campaign.character.max_hp %>"
+        data-character-current-hp="<%= @campaign.character.current_hp %>"
+        data-character-armor-class="<%= @campaign.character.armor_class %>"
+        data-character-equipment="<%= @campaign.character.equipment %>"
+        data-character-gender="<%= @campaign.character.gender %>"
+        data-character-languages="<%= @campaign.character.languages %>
+        ">
 
       <div class="chatDisplay">
         <div id="messages" data-campaign-session-subscription-target="messages">

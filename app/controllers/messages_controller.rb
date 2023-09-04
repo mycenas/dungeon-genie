@@ -17,11 +17,34 @@ class MessagesController < ApplicationController
         render_to_string(partial: "message", locals: {message: @message})
       )
 
+      race = Race.find(@campaign.character.race_id).name
+      character_class = CharacterClass.find(@campaign.character.character_class_id).name
+      languages_str = @campaign.character.languages.join(", ")
+      equipment_str = @campaign.character.equipment.join(", ")
+
+      character_stats = CharacterStats.where(character_id: @campaign.character.id).each_with_object({}) do |stat, hash|
+        stat_name = Stats.find(stat.stats_id).name
+        hash[stat_name] = stat.value
+      end
+
        # Using ChatService here
       chat_service = ChatService.new(
         message: @message.content,
         campaign_description: @campaign.campaign_option.description,
-        message_history: existing_messages
+        message_history: existing_messages,
+        character: {
+          name: @campaign.character.name,
+          level: @campaign.character.level,
+          race: race,
+          character_class: character_class,
+          max_hp: @campaign.character.max_hp,
+          current_hp: @campaign.character.current_hp,
+          armor_class: @campaign.character.armor_class,
+          equipment: equipment_str,
+          gender: @campaign.character.gender,
+          languages: languages_str,
+        },
+        character_stats: character_stats
       )
 
       generated_text = chat_service.call
