@@ -1,0 +1,95 @@
+.vertical-sidebar {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.sidebar-item {
+	position: relative;
+	padding: 10px;
+}
+
+.profile-pic-sidebar,
+.campaign-option-image,
+.equipment-icon {
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	object-fit: cover;
+	object-position: center top;
+	box-shadow: 0 0 10px #1a2038, 0 0 20px #1a2038;
+}
+
+.profile-pic-sidebar:hover,
+.campaign-option-image:hover,
+.equipment-icon:hover {
+	box-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+}
+
+.hover-info {
+	min-width: 400px;
+	max-width: 500px;
+	display: none;
+	position: absolute;
+	border-radius: 15px;
+	top: 0;
+	left: 100%;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: #1a2038;
+	box-shadow: 0 0 50px #c2c9e7;
+	border: 1px solid #1a2038;
+	transition: 0.6s, box-shadow 0.6s;
+	color: #fff;
+	padding: 15px;
+	border-radius: 15px;
+	white-space: normal;
+	overflow-wrap: break-word;
+	overflow-y: auto;
+}
+
+.char-hover-info {
+	min-width: 250px;
+	max-width: 400px;
+	display: none;
+	position: absolute;
+	border-radius: 15px;
+	top: 0;
+	left: 100%;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: #1a2038;
+	box-shadow: 0 0 50px #c2c9e7;
+	border: 1px solid #1a2038;
+	transition: 0.6s, box-shadow 0.6s;
+	color: #fff;
+	padding: 15px;
+	border-radius: 15px;
+	white-space: normal;
+	overflow-wrap: break-word;
+	overflow-y: auto;
+}
+
+.hover-info p {
+	font-size: 15px;
+}
+
+.sidebar-item:hover .hover-info {
+	display: block;
+	border-radius: 15px;
+}
+
+.char-hover-info p {
+	font-size: 15px;
+}
+
+.sidebar-item:hover .char-hover-info {
+	display: block;
+	border-radius: 15px;
+}
