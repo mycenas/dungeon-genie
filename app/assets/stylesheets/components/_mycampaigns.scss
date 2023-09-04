@@ -6,13 +6,14 @@
 }
 
 .mycampaigns-card {
+	position: relative;
+	z-index: 1;
 	width: 600px;
 	height: 335px;
 	margin: 40px;
 	perspective: 1000px;
-	border-radius: 15px;
 	overflow: hidden;
-	position: relative;
+	border-radius: 15px;
 	box-shadow: 0 0 40px #01051b;
 	transition: box-shadow 0.6s;
 }
@@ -61,11 +62,27 @@
 	font-size: 25px;
 	letter-spacing: 4px;
 	text-transform: uppercase;
-	z-index: 2;
+	z-index: 3;
 	text-align: center;
 	padding: 5px 10px;
 	border-radius: 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.character-profile-picture {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 4;
+}
+
+.profile-pic {
+	border-radius: 50%;
+	width: 85px;
+	height: 85px;
+	object-fit: cover;
+	object-position: center top;
+	box-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
 }

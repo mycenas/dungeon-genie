@@ -1,4 +1,37 @@
 <div class="wizard-container">
+
+  <div class="vertical-sidebar">
+    <div class="sidebar-item">
+      <%= image_tag @campaign.campaign_option.image_url, class: "campaign-option-image" %>
+      <div class="hover-info">
+      <strong>Campaign: <%= @campaign.campaign_option.name %></strong><br>
+      <p><%= @campaign.campaign_option.description %></p>
+      </div>
+    </div>
+    <div class="sidebar-item">
+      <%= image_tag @campaign.character.image_path, class: "profile-pic-sidebar" %>
+      <div class="char-hover-info">
+      <strong>Character Details:</strong><br>
+      <strong>Name:</strong> <%= @campaign.character.name %><br>
+      <strong>Level:</strong> <%= @campaign.character.level %><br>
+      <strong>Race:</strong> <%= @campaign.character.race.name %><br>
+      <strong>Class:</strong> <%= @campaign.character.character_class.name %><br>
+      <strong>Languages:</strong> <%= @campaign.character.languages.join(', ') %>
+      </div>
+    </div>
+    <div class="sidebar-item">
+      <%= image_tag 'equipment-bag.png', class: 'equipment-icon' %>
+      <div class="char-hover-info">
+        <strong>Equipment:</strong><br>
+        <ul>
+          <% @campaign.character.equipment.each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="wizard">
     <div class="wizard-background">
     </div>

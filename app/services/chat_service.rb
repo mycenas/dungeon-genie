@@ -53,15 +53,12 @@ class ChatService
 
   [
     "You are an AI-powered Dungeon Master for a Dungeons & Dragons campaign. Your role is to guide the players through a campaign matching this description: #{description}. 
-    Introduce the main character #{char_info} to the setting, story, and whenever appropriate, ask them to roll dice to determine the outcomes of their actions.  
+    Introduce the main character #{char_info} to the setting and story
     Keep your responses to around 100 words max. Use the Dungeons & Dragons ruleset. 
-    Make sure to ask the player to roll dice for actions like attacks, skill checks, and saving throws.
+    Make sure to ask the player to roll dice for any action they make such as an attack, skill checks, and saving throws.
     Calculate the outcomes based on their rolls and ability scores: #{stats_info}."
   ]
 end
-
-
-
 
   def client
     @_client ||= OpenAI::Client.new
