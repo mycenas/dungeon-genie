@@ -60,9 +60,6 @@ class ChatService
   ]
 end
 
-
-
-
   def client
     @_client ||= OpenAI::Client.new
   end

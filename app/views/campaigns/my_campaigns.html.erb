@@ -1,15 +1,22 @@
 <div class="mycampaigns-container">
   <% if @campaign_options.any? %>
-    <% @campaign_options.each do |campaign| %>
-      <%= link_to campaign_path(campaign.id), class: 'card-link' do %>
-        <div class="mycampaigns-card">
-          <div class="mycampaigns-image">
-            <%= image_tag campaign.image_url %>
-            <div class="campaign-name-overlay">
-              <%= campaign.name %>
+    <% @campaign_options.each do |campaign_option| %>
+      <% campaign_option.campaigns.each do |campaign| %>
+        <%= link_to campaign_path(campaign.id), class: 'card-link' do %>
+          <div class="mycampaigns-card">
+            <div class="character-profile-picture">
+              <% if campaign.character&.image_path %>
+                <%= image_tag campaign.character.image_path, class: "profile-pic" %>
+              <% end %>
+            </div>
+            <div class="mycampaigns-image">
+              <%= image_tag campaign_option.image_url %>
+              <div class="campaign-name-overlay">
+                <%= campaign_option.name %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   <% else %>
