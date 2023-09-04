@@ -14,14 +14,10 @@
 .chatDisplay {
 	padding: 10px;
 	overflow-y: auto;
-	border: 1px solid #1a2038;
 	text-align: left;
 	width: 800px;
 	height: 210px;
 	border-radius: 15px;
-	backdrop-filter: blur(16px) saturate(180%);
-	-webkit-backdrop-filter: blur(16px) saturate(180%);
-	background-color: #0e1328be;
 	margin-bottom: 10px;
 }
 
@@ -73,15 +69,17 @@
 }
 
 .message-name {
-	font-size: 15px;
-	color: #c2c9e7;
+	font-size: 16px;
+	color: #ffffff;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	margin: 0px;
+	text-shadow: 0 0 10px #c2c9e780;
 }
 
 .message-content {
-	font-size: 15px;
-	color: #c2c9e7;
+	font-size: 16px;
+	color: #ffffff;
 	line-height: 1.7;
+	text-shadow: 0 0 10px #c2c9e780;
 }
