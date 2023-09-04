@@ -51,7 +51,7 @@ class MessagesController < ApplicationController
 
       ai_message = Message.new(content: generated_text)
       ai_message.campaign_session = @campaign_session
-      ai_message.user = current_user # Change this to Dungeon Genie user later on
+      ai_message.user_id = 5 # Dungeon Genie user ID
       ai_message.save
 
       CampaignSessionChannel.broadcast_to(

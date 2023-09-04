@@ -15,7 +15,7 @@ hieu = User.create(email: "hieu@dungeongenie.com", password: "hieu123!")
 marnie = User.create(email: "marnie@dungeongenie.com", password: "momoyuki")
 brian = User.create(email: "brian@dungeongenie.com", password: "brian456!")
 david = User.create(email: "david@dungeongenie.com", password: "darkurge")
-dungeongenie = User.create(email: "dungeongenie@dungeongenie.com", password: "admin")
+dungeongenie = User.create(email: "dungeongenie@dungeongenie.com", password: "dungeongenie")
 
 # Race Seeds
 wood_elf = Race.create(name: "Wood Elf", description: "Wood elves are a reclusive subrace of elves known for their grace and connection to nature. With skin in hues of copper and eyes reflecting the verdant forests they call home, they move silently, blending seamlessly with the woodland surroundings. As children of the forest, Wood Elves possess an innate understanding of the natural world. This bond manifests as heightened senses and nimbleness, making them exceptional scouts and hunters.", ability_bonuses: "+2 Dexterity, +1 Wisdom", traits: "Darkvision, Mask of the Wild, Fleet of Foot, Keen Senses", languages: "Common, Elvish")
