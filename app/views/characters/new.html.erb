@@ -19,6 +19,27 @@
           <%= f.text_field :name %>
         </div>
 
+        <div>Let Destiny Decide Your One True Name
+          <form>
+            <select id ='race' name="race">
+              <option value="elven">Elven</option>
+              <option value="dwarven">Dwarven</option>
+              <option value="dragonborn">Dragonborn</option>
+              <option value="tiefling">Tiefling</option>
+            </select>
+            <select id='class' name="class">
+              <option value="warrior">Warrior</option>
+              <option value="warlock">Warlock</option>
+              <option value="cleric">Cleric</option>
+              <option value="druid">Druid</option>
+            </select>
+          </form>
+          <button id ='submit'><i class="fa-solid fa-dice-d20 fa-shake fa-xl" style="color: #9900ff;"></i></button>
+          <div id='nameArea'>
+            <ul>
+            </ul>
+          </div>
+
         <div class="form-field">
           <%= f.label :race %>
           <%= f.select :race_id, Race.all.collect { |r| [r.name, r.id] } %>
@@ -96,4 +117,113 @@
       }
     });
   });
+</script>
+
+<script>
+console.log('start')
+const submitButton=document.getElementById('submit');
+console.log('button assigned')
+const nameArea = document.getElementById('nameArea');
+
+
+let beginningName = '';
+let middleName='';
+let endName ='';
+let title ='';
+let epithet='';
+
+const elvenBeginning =['Fa', 'Syl'];
+const elvenMiddle =['lews', 'sis'];
+const elvenEnd =['llyn', 'na'];
+
+const dwarvenBeginning =['Yo', 'Bi'];
+const dwarvenMiddle =['no', 'gan'];
+const dwarvenEnd =['minor', 'ithor'];
+
+const wealdBeginning =['Al', 'Ro'];
+const wealdMiddle =['g', 'th'];
+const wealdEnd =['ar', 'an'];
+
+const tieflingBeginning =['Mep', 'Da', 'Br'];
+const tieflingMiddle =['g', 'hi', 'i'];
+const tieflingEnd =['sto', 'on', 'an'];
+
+const warriorTitle =['War Ender', 'Battlelord', 'Knight', 'Brawler', 'Blood Tyrant'];
+const warriorEpithet =[', The Brave', ', The Bold', ', The Slaughterer'];
+
+const wizardTitle =['Sage','Archmage','Mage', 'Wizard', 'Necromancer'];
+const wizardEpithet =[', The Enlightened',', Dragon Speaker',', The Eldritch'];
+
+const trollTitle =['Sexy', 'Glamorous', 'Foxy', 'Warmhearth'];
+const trollEpithet =[', The Baddie', ', The Insatiable', ', The Irresistable', ', Satiator of Appetites', ', Bedshaker', ', The King Master'];
+console.log('variables assigned');
+
+const druidTitle =['Ethereal', 'Eternal', 'Lycan'];
+const druidEpithet =[', The Wise', ', The Defiant', ', The Rebel', ', Mystical Protector', ', Forest Protector', ', Beast King'];
+console.log('variables assigned');
+
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+submitButton.addEventListener('click', function ()
+{
+    console.log('submitted');
+let raceDropDown = document.getElementById("race");
+let race = raceDropDown.options[raceDropDown.selectedIndex].value;
+let myClass = document.getElementById('class').value;
+
+
+if (race == 'elven'){
+  beginningName = elvenBeginning[randomIntFromInterval(1, elvenBeginning.length)-1];
+  middleName=elvenMiddle[randomIntFromInterval(1, elvenMiddle.length)-1];
+  endName =elvenEnd[randomIntFromInterval(1, elvenEnd.length)-1];
+}
+if (race == 'dragonborn'){
+  beginningName = wealdBeginning[randomIntFromInterval(1, wealdBeginning.length)-1];
+  middleName=wealdMiddle[randomIntFromInterval(1, wealdMiddle.length)-1];
+  endName =wealdEnd[randomIntFromInterval(1, wealdEnd.length)-1];
+}
+
+if (race == 'dwarven'){
+  beginningName = dwarvenBeginning[randomIntFromInterval(1, dwarvenBeginning.length)-1];
+  middleName=dwarvenMiddle[randomIntFromInterval(1, dwarvenMiddle.length)-1];
+  endName =dwarvenEnd[randomIntFromInterval(1, dwarvenEnd.length)-1];
+}
+
+if (race == 'tiefling'){
+  beginningName = tieflingBeginning[randomIntFromInterval(1, tieflingBeginning.length)-1];
+  middleName=tieflingMiddle[randomIntFromInterval(1, tieflingMiddle.length)-1];
+  endName =tieflingEnd[randomIntFromInterval(1, tieflingEnd.length)-1];
+}
+
+if (myClass == 'warlock'){
+  title =wizardTitle[randomIntFromInterval(1, wizardTitle.length)-1];
+  epithet=wizardEpithet[randomIntFromInterval(1, wizardEpithet.length)-1];
+}
+
+if (myClass == 'warrior'){
+  title =warriorTitle[randomIntFromInterval(1, warriorTitle.length)-1];
+  epithet=warriorEpithet[randomIntFromInterval(1, warriorEpithet.length)-1];
+}
+if (myClass == 'cleric'){
+  title =trollTitle[randomIntFromInterval(1, trollTitle.length)-1];
+  epithet=trollEpithet[randomIntFromInterval(1, trollEpithet.length)-1];
+}
+
+if (myClass == 'druid'){
+  title =druidTitle[randomIntFromInterval(1, druidTitle.length)-1];
+  epithet=druidEpithet[randomIntFromInterval(1, druidEpithet.length)-1];
+}
+
+let myName = title+' '+beginningName+middleName+endName+' '+epithet;
+let fantasyName = document.createElement('li');
+fantasyName.textContent = myName;
+
+nameArea.append(fantasyName);
+    console.log('fantasyName appended');
+
+
+});
 </script>
