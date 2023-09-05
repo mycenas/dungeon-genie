@@ -15,15 +15,18 @@
           <div class="campaign-content">
             <%= campaign.description %>
           </div>
+          <br>
           <!-- Start of form -->
-          <strong>Choose your character:</strong>
-          <center><%= form_with url: new_campaign_path, method: :post, class: "select-campaign-form" do %>
-            <%= hidden_field_tag :campaign_id, campaign.id %>
-            <% if @characters && @characters.any? %>
-              <%= select_tag :character_id, options_from_collection_for_select(@characters, "id", "name") %>
-            <% else %>
-              <p>You currently have no characters.</p>
-            <% end %></center>
+          <div class="character-selection-wrapper">
+            <strong>Choose your character:</strong>
+            <%= form_with url: new_campaign_path, method: :post, class: "select-campaign-form" do %>
+              <%= hidden_field_tag :campaign_id, campaign.id %>
+              <% if @characters && @characters.any? %>
+                <%= select_tag :character_id, options_from_collection_for_select(@characters, "id", "name") %>
+              <% else %>
+                <p>You currently have no characters.</p>
+              <% end %>
+          </div>
             <br>
             <%= submit_tag 'Select Campaign', class: "glass-button-select" %>
           <% end %>
