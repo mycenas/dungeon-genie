@@ -165,7 +165,7 @@
 	border: 0;
 	text-decoration: none;
 	border-radius: 15px;
-	background-color: #925bff79;
+	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(30px);
 	color: rgba(255, 255, 255, 0.8);
@@ -176,7 +176,7 @@
 }
 
 .glass-button-send:hover {
-	background-color: #5d2ebd;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .glass-button-login {
@@ -186,7 +186,7 @@
 	border: 0;
 	text-decoration: none;
 	border-radius: 15px;
-	background-color: #925bff79;
+	background-color: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(30px);
 	color: rgba(255, 255, 255, 0.8);
@@ -197,5 +197,28 @@
 }
 
 .glass-button-login:hover {
-	background-color: #5d2ebd;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.glass-button-char {
+	width: 125px;
+	border: 0;
+	text-decoration: none;
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(30px);
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 14px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.glass-button-char:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-selected {
+	background-color: #8b32ff;
 }
