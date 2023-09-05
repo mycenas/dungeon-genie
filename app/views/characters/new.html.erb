@@ -1,5 +1,26 @@
 <div class="main-content">
   <div class="new-character-container">
+    <div>Let Destiny Decide Your One True Name
+      <form>
+        <select id ='race' name="race">
+        <option value="elven">Elven</option>
+        <option value="dwarven">Dwarven</option>
+        <option value="dragonborn">Dragonborn</option>
+        <option value="tiefling">Tiefling</option>
+        </select>
+        <select id='class' name="class">
+        <option value="warrior">Warrior</option>
+        <option value="warlock">Warlock</option>
+        <option value="cleric">Cleric</option>
+        <option value="druid">Druid</option>
+        </select>
+        </form>
+        <button id ='submit'><i class="fa-solid fa-dice-d20 fa-shake fa-xl" style="color: #9900ff;"></i></button>
+        <div id='nameArea'>
+          <ul>
+          </ul>
+        </div>
+
     <div class="new-character-form-content">
       <%= form_with(model: @character, local: true, html: { class: "new-character-form" }) do |f| %>
 
@@ -19,47 +40,32 @@
           <%= f.text_field :name %>
         </div>
 
-        <div>Let Destiny Decide Your One True Name
-          <form>
-            <select id ='race' name="race">
-              <option value="elven">Elven</option>
-              <option value="dwarven">Dwarven</option>
-              <option value="dragonborn">Dragonborn</option>
-              <option value="tiefling">Tiefling</option>
-            </select>
-            <select id='class' name="class">
-              <option value="warrior">Warrior</option>
-              <option value="warlock">Warlock</option>
-              <option value="cleric">Cleric</option>
-              <option value="druid">Druid</option>
-            </select>
-          </form>
-          <button id ='submit'><i class="fa-solid fa-dice-d20 fa-shake fa-xl" style="color: #9900ff;"></i></button>
-          <div id='nameArea'>
-            <ul>
-            </ul>
-          </div>
-
-        <div class="form-field">
+        <div class="form-field race-class-container">
           <%= f.label :race %>
-          <%= f.select :race_id, Race.all.collect { |r| [r.name, r.id] } %>
+          <% Race.all.each do |r| %>
+            <button type="button" class="race-button glass-button-char" data-id="<%= r.id %>"><%= r.name %></button>
+          <% end %>
+          <%= f.hidden_field :race_id, id: "hidden_race_id" %>
         </div>
 
-        <div id='race-details'></div>
-
-        <div class="form-field">
+        <div class="form-field character-class-container">
           <%= f.label :character_class %>
-            <%= button_tag "Open Modal", type: 'button', id: 'open-modal-button' %>
-          <%= f.select :character_class_id, CharacterClass.all.collect { |c| [c.name, c.id] } %>
+          <% CharacterClass.all.each do |c| %>
+            <button type="button" class="character-class-button glass-button-char" data-id="<%= c.id %>"><%= c.name %></button>
+          <% end %>
+          <%= f.hidden_field :character_class_id, id: "hidden_character_class_id" %>
         </div>
 
-        <div id='class-details'></div>
-
-        <div class="form-field">
+        <div class="form-field gender-container">
           <%= f.label :gender %>
-          <%= f.select :gender, ['Female', 'Male', 'Non-Binary', 'Other'] %>
+          <button type="button" class="gender-button glass-button-char" data-id="Female">Female</button>
+          <button type="button" class="gender-button glass-button-char" data-id="Male">Male</button>
+          <button type="button" class="gender-button glass-button-char" data-id="Non-Binary">Non-Binary</button>
+          <button type="button" class="gender-button glass-button-char" data-id="Other">Other</button>
+          <%= f.hidden_field :gender, id: "hidden_gender_id" %>
         </div>
 
+        <br>
         <div class="actions">
           <%= f.submit %>
         </div>
@@ -68,162 +74,162 @@
   </div>
 </div>
 
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <p>ADD CLASS TABS HERE</p>
-    <button id="close-modal-button" class="close-button">Close</button>
-  </div>
-</div>
+<script>
+  console.log('start')
+  const submitButton=document.getElementById('submit');
+  console.log('button assigned')
+  const nameArea = document.getElementById('nameArea');
 
-<script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
+
+  let beginningName = '';
+  let middleName='';
+  let endName ='';
+  let title ='';
+  let epithet='';
+
+  const elvenBeginning =['Fa', 'Syl'];
+  const elvenMiddle =['lews', 'sis'];
+  const elvenEnd =['llyn', 'na'];
+
+  const dwarvenBeginning =['Yo', 'Bi'];
+  const dwarvenMiddle =['no', 'gan'];
+  const dwarvenEnd =['minor', 'ithor'];
+
+  const wealdBeginning =['Al', 'Ro'];
+  const wealdMiddle =['g', 'th'];
+  const wealdEnd =['ar', 'an'];
+
+  const tieflingBeginning =['Mep', 'Da', 'Br'];
+  const tieflingMiddle =['g', 'hi', 'i'];
+  const tieflingEnd =['sto', 'on', 'an'];
+
+  const warriorTitle =['War Ender', 'Battlelord', 'Knight', 'Brawler', 'Blood Tyrant'];
+  const warriorEpithet =[', The Brave', ', The Bold', ', The Slaughterer'];
+
+  const wizardTitle =['Sage','Archmage','Mage', 'Wizard', 'Necromancer'];
+  const wizardEpithet =[', The Enlightened',', Dragon Speaker',', The Eldritch'];
+
+  const trollTitle =['Sexy', 'Glamorous', 'Foxy', 'Warmhearth'];
+  const trollEpithet =[', The Baddie', ', The Insatiable', ', The Irresistable', ', Satiator of Appetites', ', Bedshaker', ', The King Master'];
+  console.log('variables assigned');
+
+  const druidTitle =['Ethereal', 'Eternal', 'Lycan'];
+  const druidEpithet =[', The Wise', ', The Defiant', ', The Rebel', ', Mystical Protector', ', Forest Protector', ', Beast King'];
+  console.log('variables assigned');
+
+  function randomIntFromInterval(min,max)
+  {
+      return Math.floor(Math.random()*(max-min+1)+min);
+  }
+
+  submitButton.addEventListener('click', function ()
+  {
+      console.log('submitted');
+  let raceDropDown = document.getElementById("race");
+  let race = raceDropDown.options[raceDropDown.selectedIndex].value;
+  let myClass = document.getElementById('class').value;
+
+
+  if (race == 'elven'){
+    beginningName = elvenBeginning[randomIntFromInterval(1, elvenBeginning.length)-1];
+    middleName=elvenMiddle[randomIntFromInterval(1, elvenMiddle.length)-1];
+    endName =elvenEnd[randomIntFromInterval(1, elvenEnd.length)-1];
+  }
+  if (race == 'dragonborn'){
+    beginningName = wealdBeginning[randomIntFromInterval(1, wealdBeginning.length)-1];
+    middleName=wealdMiddle[randomIntFromInterval(1, wealdMiddle.length)-1];
+    endName =wealdEnd[randomIntFromInterval(1, wealdEnd.length)-1];
+  }
+
+  if (race == 'dwarven'){
+    beginningName = dwarvenBeginning[randomIntFromInterval(1, dwarvenBeginning.length)-1];
+    middleName=dwarvenMiddle[randomIntFromInterval(1, dwarvenMiddle.length)-1];
+    endName =dwarvenEnd[randomIntFromInterval(1, dwarvenEnd.length)-1];
+  }
+
+  if (race == 'tiefling'){
+    beginningName = tieflingBeginning[randomIntFromInterval(1, tieflingBeginning.length)-1];
+    middleName=tieflingMiddle[randomIntFromInterval(1, tieflingMiddle.length)-1];
+    endName =tieflingEnd[randomIntFromInterval(1, tieflingEnd.length)-1];
+  }
+
+  if (myClass == 'warlock'){
+    title =wizardTitle[randomIntFromInterval(1, wizardTitle.length)-1];
+    epithet=wizardEpithet[randomIntFromInterval(1, wizardEpithet.length)-1];
+  }
+
+  if (myClass == 'warrior'){
+    title =warriorTitle[randomIntFromInterval(1, warriorTitle.length)-1];
+    epithet=warriorEpithet[randomIntFromInterval(1, warriorEpithet.length)-1];
+  }
+  if (myClass == 'cleric'){
+    title =trollTitle[randomIntFromInterval(1, trollTitle.length)-1];
+    epithet=trollEpithet[randomIntFromInterval(1, trollEpithet.length)-1];
+  }
+
+  if (myClass == 'druid'){
+    title =druidTitle[randomIntFromInterval(1, druidTitle.length)-1];
+    epithet=druidEpithet[randomIntFromInterval(1, druidEpithet.length)-1];
+  }
+
+  let myName = title+' '+beginningName+middleName+endName+' '+epithet;
+  let fantasyName = document.createElement('li');
+  fantasyName.textContent = myName;
+
+  nameArea.append(fantasyName);
+      console.log('fantasyName appended');
+
+  });
+</script>
 
 <script>
-  $(document).on('turbolinks:load', function() {
-  $('#race_select').on('change', function() {
-    var selectedRaceId = $(this).val();
-    if (selectedRaceId) {
-      $.ajax({
-        url: "/races/" + selectedRaceId,
-        method: "GET",
-        dataType: "json",
-        success: function(data) {
-          var raceDetails = `
-            <h3>${data.name}</h3>
-            <p><strong>Description:</strong> ${data.description}</p>
-            <p><strong>Ability Bonuses:</strong> ${data.ability_bonuses}</p>
-            <p><strong>Traits:</strong> ${data.traits}</p>
-            <p><strong>Languages:</strong> ${data.languages}</p>
-          `;
-          $('#race-details').html(raceDetails);
-        }
+document.addEventListener("DOMContentLoaded", function() {
+  // For character classes
+  document.querySelectorAll('.character-class-button').forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      // Remove the 'button-selected' class from all other buttons in the group
+      document.querySelectorAll('.character-class-button').forEach(function(otherButton) {
+        otherButton.classList.remove('button-selected');
       });
-    }
-  });
-});
-</script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const openModalButton = document.getElementById("open-modal-button");
-    const closeModalButton = document.getElementById("close-modal-button");
-    const modal = document.getElementById("modal");
-    openModalButton.addEventListener("click", function () {
-      console.log("test");
-      modal.style.display = "block";
-    });
-    closeModalButton.addEventListener("click", function (event) {
-      if (event.target === closeModalButton) {
-        modal.style.display = "none";
-      }
+      // Add the 'button-selected' class to the clicked button
+      e.target.classList.add('button-selected');
+
+      // Update the hidden field value
+      document.getElementById("hidden_character_class_id").value = e.target.dataset.id;
     });
   });
-</script>
 
-<script>
-console.log('start')
-const submitButton=document.getElementById('submit');
-console.log('button assigned')
-const nameArea = document.getElementById('nameArea');
+  // For races
+  document.querySelectorAll('.race-button').forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      // Remove the 'button-selected' class from all other buttons in the group
+      document.querySelectorAll('.race-button').forEach(function(otherButton) {
+        otherButton.classList.remove('button-selected');
+      });
 
+      // Add the 'button-selected' class to the clicked button
+      e.target.classList.add('button-selected');
 
-let beginningName = '';
-let middleName='';
-let endName ='';
-let title ='';
-let epithet='';
+      // Update the hidden field value
+      document.getElementById("hidden_race_id").value = e.target.dataset.id;
+    });
+  });
 
-const elvenBeginning =['Fa', 'Syl'];
-const elvenMiddle =['lews', 'sis'];
-const elvenEnd =['llyn', 'na'];
+  // New code for gender
+  document.querySelectorAll('.gender-button').forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      // Remove the 'button-selected' class from all other buttons in the group
+      document.querySelectorAll('.gender-button').forEach(function(otherButton) {
+        otherButton.classList.remove('button-selected');
+      });
 
-const dwarvenBeginning =['Yo', 'Bi'];
-const dwarvenMiddle =['no', 'gan'];
-const dwarvenEnd =['minor', 'ithor'];
+      // Add the 'button-selected' class to the clicked button
+      e.target.classList.add('button-selected');
 
-const wealdBeginning =['Al', 'Ro'];
-const wealdMiddle =['g', 'th'];
-const wealdEnd =['ar', 'an'];
-
-const tieflingBeginning =['Mep', 'Da', 'Br'];
-const tieflingMiddle =['g', 'hi', 'i'];
-const tieflingEnd =['sto', 'on', 'an'];
-
-const warriorTitle =['War Ender', 'Battlelord', 'Knight', 'Brawler', 'Blood Tyrant'];
-const warriorEpithet =[', The Brave', ', The Bold', ', The Slaughterer'];
-
-const wizardTitle =['Sage','Archmage','Mage', 'Wizard', 'Necromancer'];
-const wizardEpithet =[', The Enlightened',', Dragon Speaker',', The Eldritch'];
-
-const trollTitle =['Sexy', 'Glamorous', 'Foxy', 'Warmhearth'];
-const trollEpithet =[', The Baddie', ', The Insatiable', ', The Irresistable', ', Satiator of Appetites', ', Bedshaker', ', The King Master'];
-console.log('variables assigned');
-
-const druidTitle =['Ethereal', 'Eternal', 'Lycan'];
-const druidEpithet =[', The Wise', ', The Defiant', ', The Rebel', ', Mystical Protector', ', Forest Protector', ', Beast King'];
-console.log('variables assigned');
-
-function randomIntFromInterval(min,max)
-{
-    return Math.floor(Math.random()*(max-min+1)+min);
-}
-
-submitButton.addEventListener('click', function ()
-{
-    console.log('submitted');
-let raceDropDown = document.getElementById("race");
-let race = raceDropDown.options[raceDropDown.selectedIndex].value;
-let myClass = document.getElementById('class').value;
-
-
-if (race == 'elven'){
-  beginningName = elvenBeginning[randomIntFromInterval(1, elvenBeginning.length)-1];
-  middleName=elvenMiddle[randomIntFromInterval(1, elvenMiddle.length)-1];
-  endName =elvenEnd[randomIntFromInterval(1, elvenEnd.length)-1];
-}
-if (race == 'dragonborn'){
-  beginningName = wealdBeginning[randomIntFromInterval(1, wealdBeginning.length)-1];
-  middleName=wealdMiddle[randomIntFromInterval(1, wealdMiddle.length)-1];
-  endName =wealdEnd[randomIntFromInterval(1, wealdEnd.length)-1];
-}
-
-if (race == 'dwarven'){
-  beginningName = dwarvenBeginning[randomIntFromInterval(1, dwarvenBeginning.length)-1];
-  middleName=dwarvenMiddle[randomIntFromInterval(1, dwarvenMiddle.length)-1];
-  endName =dwarvenEnd[randomIntFromInterval(1, dwarvenEnd.length)-1];
-}
-
-if (race == 'tiefling'){
-  beginningName = tieflingBeginning[randomIntFromInterval(1, tieflingBeginning.length)-1];
-  middleName=tieflingMiddle[randomIntFromInterval(1, tieflingMiddle.length)-1];
-  endName =tieflingEnd[randomIntFromInterval(1, tieflingEnd.length)-1];
-}
-
-if (myClass == 'warlock'){
-  title =wizardTitle[randomIntFromInterval(1, wizardTitle.length)-1];
-  epithet=wizardEpithet[randomIntFromInterval(1, wizardEpithet.length)-1];
-}
-
-if (myClass == 'warrior'){
-  title =warriorTitle[randomIntFromInterval(1, warriorTitle.length)-1];
-  epithet=warriorEpithet[randomIntFromInterval(1, warriorEpithet.length)-1];
-}
-if (myClass == 'cleric'){
-  title =trollTitle[randomIntFromInterval(1, trollTitle.length)-1];
-  epithet=trollEpithet[randomIntFromInterval(1, trollEpithet.length)-1];
-}
-
-if (myClass == 'druid'){
-  title =druidTitle[randomIntFromInterval(1, druidTitle.length)-1];
-  epithet=druidEpithet[randomIntFromInterval(1, druidEpithet.length)-1];
-}
-
-let myName = title+' '+beginningName+middleName+endName+' '+epithet;
-let fantasyName = document.createElement('li');
-fantasyName.textContent = myName;
-
-nameArea.append(fantasyName);
-    console.log('fantasyName appended');
-
-
+      // Update the hidden field value
+      document.getElementById("hidden_gender_id").value = e.target.dataset.id;
+    });
+  });
 });
 </script>
