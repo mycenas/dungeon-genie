@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-[User, Spell, Race, CharacterClass, Stats, CampaignOption, Campaign].each do |model|
+[User, Spell, Race, Character, CharacterClass, Stats, CampaignOption, Campaign].each do |model|
   model.destroy_all
 end
 
