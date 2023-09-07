@@ -1,5 +1,4 @@
 <div class="wizard-container">
-
   <div class="vertical-sidebar">
     <div class="sidebar-item">
       <%= image_tag @campaign.campaign_option.image_url, class: "campaign-option-image" %>
@@ -78,7 +77,6 @@
                       input_html: { class: "messageInput" } %>
           <button type="submit" class="glass-button-send">Speak</button>
         </div>
-
       <% end %>
     </div>
   </div>
@@ -90,7 +88,7 @@
     messageInput.value = "";
     scrollToBottom();
   });
-  
+
   // Function to scroll to the bottom
   function scrollToBottom() {
     var chatbox = document.getElementById("messages");
@@ -100,4 +98,5 @@
   window.onload = scrollToBottom;
   // auto-scroll
   scrollToBottom();
+
 </script>

@@ -1,7 +1,3 @@
-import { Controller } from "@hotwired/stimulus";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-
 const wizardUrl = new URL("./../waving.glb", import.meta.url);
 const dungeonMasterTable = new URL("./../table.glb", import.meta.url);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -9,6 +5,10 @@ const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
 const gltflLoader = new GLTFLoader();
 const backgroundTexture = textureLoader.load("./../background-image.png");
+
+import { Controller } from "@hotwired/stimulus";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 export default class extends Controller {
   connect() {
@@ -24,7 +24,7 @@ export default class extends Controller {
     backgroundTexture.encoding = THREE.sRGBEncoding;
     scene.background = backgroundTexture;
 
-    // CAMERA - requires 4 arguments
+    // CAMERA
     const camera = new THREE.PerspectiveCamera(
       10,
       window.innerWidth / window.innerHeight,
@@ -34,62 +34,83 @@ export default class extends Controller {
     camera.position.set(0, 3, 90);
 
     // DIRECTIONAL LIGHTING
-    const directionalLight = new THREE.DirectionalLight(0xffa500, 2); // Moody Orange
+    const directionalLight = new THREE.DirectionalLight(0xffa500, 2);
     directionalLight.position.set(0, 20, 60);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
-    const enchantedBlue = new THREE.DirectionalLight(0x0000ff, 2); // Enchanted Blue
+    const enchantedBlue = new THREE.DirectionalLight(0x0000ff, 2);
     enchantedBlue.position.set(-20, 10, 20);
     enchantedBlue.castShadow = true;
     scene.add(enchantedBlue);
 
     // ANIMATIONS & LOADING WIZARD
-    let mixer;
+    this.mixer;
 
-    gltflLoader.load(wizardUrl.href, function (gltf) {
+    gltflLoader.load(wizardUrl.href, (gltf) => {
       const model = gltf.scene;
-      model.traverse(function (child) {
+      model.traverse((child) => {
         if (child.isMesh) child.castShadow = true;
       });
       scene.add(model);
       model.position.set(0, 0.4, -10);
       model.scale.set(1.4, 1.4, 1.4);
 
-      mixer = new THREE.AnimationMixer(model);
-      gltf.animations.forEach(function (clip) {
-        const action = mixer.clipAction(clip);
+      this.mixer = new THREE.AnimationMixer(model);
+      gltf.animations.forEach((clip) => {
+        const action = this.mixer.clipAction(clip);
+        action.setLoop(THREE.LoopOnce);
+        action.clampWhenFinished = true;
         action.play();
       });
     });
 
     // LOADING TABLE
-    gltflLoader.load(dungeonMasterTable.href, function (gltf) {
+    gltflLoader.load(dungeonMasterTable.href, (gltf) => {
       const model = gltf.scene;
-      model.traverse(function (child) {
+      model.traverse((child) => {
         if (child.isMesh) child.castShadow = true;
       });
       scene.add(model);
       model.scale.x = 2;
       model.position.set(-0.5, 1, -4);
-      model.rotation.x = 65 * (Math.PI / 180); // Rotate table 15 degrees
+      model.rotation.x = 65 * (Math.PI / 180);
     });
 
-    const clock = new THREE.Clock(); // https://threejs.org/docs/#api/en/core/Clock
+    this.clock = new THREE.Clock();
 
     // ANIMATION
-    function animate() {
-      if (mixer) mixer.update(clock.getDelta());
+    const animate = () => {
+      if (this.mixer) this.mixer.update(this.clock.getDelta());
       renderer.render(scene, camera);
-    }
+      this.animationFrameId = requestAnimationFrame(animate);
+    };
 
     renderer.setAnimationLoop(animate);
 
     // TRIGGER
-    window.addEventListener("resize", function () {
+    this.resizeListener = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener("resize", this.resizeListener);
+
+    this.renderer = renderer;
+    this.scene = scene;
+  }
+
+  disconnect() {
+    cancelAnimationFrame(this.animationFrameId);
+
+    this.scene.traverse(object => {
+      if (object.isMesh) {
+        object.geometry.dispose();
+        object.material.dispose();
+      }
     });
+    window.removeEventListener("resize", this.resizeListener);
+    this.scene.clear();
+    this.renderer.dispose();
   }
 }
