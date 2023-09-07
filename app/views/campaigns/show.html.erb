@@ -1,14 +1,22 @@
 <div class="campaign-show">
-  <h1><%= @campaign.campaign_option.name %></h1>
+  <h2><%= @campaign.campaign_option.name %></h2>
 
-  <div class="img-show">
-    <%= image_tag @campaign.campaign_option.image_url %>
+  <div class="show-image-container">
+    <div class="img-show">
+      <%= image_tag @campaign.campaign_option.image_url %>
+    </div>
+
+    <div class="profile-pic-container">
+      <%= image_tag @campaign.character.image_path, class: "show-profile-pic" %>
+    </div>
   </div>
-
-  <div class="campaign-description">
-    <p><%=@campaign.campaign_option.description%></p>
-    <%= button_to 'Start Session', campaign_sessions_path(@campaign), class: "glass-button" %>
+    
+    <h3><%= @campaign.character.name %>, are you ready?...</h3>
+    
+    <% if @existing_session.nil? %>
+      <%= button_to 'Begin Campaign', campaign_sessions_path(@campaign), class: "glass-button" %>
+    <% else %>
+      <%= button_to 'Continue Campaign', campaign_session_path(@campaign, @existing_session), class: "glass-button", method: :get %>
+    <% end %>
   </div>
 </div>
-
-<%# # campaign name, description, images, user, start session, current character, %>
