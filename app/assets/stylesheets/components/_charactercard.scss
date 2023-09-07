@@ -69,6 +69,7 @@
 	background-blend-mode: overlay;
 	backdrop-filter: blur(5px);
 	border-radius: 15px;
+	position: relative;
 }
 
 .character-flip-card-back ul {
@@ -89,7 +90,6 @@ figure {
 	margin: 0;
 }
 
-/* Character name on front of the card */
 .character-flip-card-front figcaption {
 	position: absolute;
 	top: 50%;
@@ -109,4 +109,53 @@ figure {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.character-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+	border-radius: 15px;
+}
+
+.character-details {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	background-color: #0e1328a9;
+	z-index: 2;
+	border-radius: 15px;
+}
+
+.no-bullets.bold-list li {
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 2px;
+	font-size: 16px;
+}
+
+.no-bullets.bold-list p {
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 2px;
+	font-size: 20px;
+}
+
+.level-circle {
+	display: inline-flex;
+	width: 35px;
+	height: 35px;
+	background-color: #633db0;
+	color: #fff;
+	font-size: 22px;
+	border-radius: 50%;
+	justify-content: center;
+	align-items: center;
 }
