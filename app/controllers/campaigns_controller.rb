@@ -28,6 +28,7 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+    @existing_session = CampaignSession.where(campaign_id: @campaign.id).last
   end
 
   private
