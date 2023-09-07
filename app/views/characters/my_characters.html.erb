@@ -5,23 +5,24 @@
         <div class="character-flip-card-inner">
           <!-- Card Front -->
           <div class="character-flip-card-front">
-          <figure>
-            <%= image_tag(character.image_path) if character.image_path.present? %>
-            <figcaption><%= character.name %></figcaption>
-          </figure>
+            <figure>
+              <%= image_tag(character.image_path) if character.image_path.present? %>
+              <figcaption><%= character.name %></figcaption>
+            </figure>
           </div>
           <!-- Card Back -->
-          <div class="character-flip-card-back" style="background-image: url(<%= asset_path(character.image_path) if character.image_path.present? %>);">
-            <ul class="no-bullets bold-list">
-              <li>Level: <span class="interpolated"><%= character.level %></span></li>
-              <li>Race: <span class="interpolated"><%= character.race.name %></span></li>
-              <li>Class: <span class="interpolated"><%= character.character_class.name %></span></li>
-              <li>HP: <span class="interpolated"><%= character.current_hp %>/<%= character.max_hp %></span></li>
-              <li>Armor Class: <span class="interpolated"><%= character.armor_class %></span></li>
-              <li>Equipment: <span class="interpolated"><%= character.equipment.join(', ') if character.equipment %></span></li>
-              <li>Gender: <span class="interpolated"><%= character.gender.capitalize %></span></li>
-              <li>Languages: <span class="interpolated"><%= character.languages.join(', ') if character.languages %></span></li>
-            </ul>
+          <div class="character-flip-card-back">
+            <div class="character-image" style="background-image: url('<%= asset_path(character.image_path) if character.image_path.present? %>');"></div>
+            <div class="character-details">
+              <ul class="no-bullets bold-list">
+                <p><strong><span class="level-circle"><%= character.level %></span> <span class="interpolated"><%= character.race.name %></span> <span class="interpolated"><%= character.character_class.name %></span></strong></p>
+                <li>Gender: <span class="interpolated"><%= character.gender.capitalize %></span></li>
+                <li>HP: <span class="interpolated"><%= character.current_hp %>/<%= character.max_hp %></span></li>
+                <li>Armor Class: <span class="interpolated"><%= character.armor_class %></span></li>
+                <li>Equipment: <span class="interpolated"><%= character.equipment.join(', ') if character.equipment %></span></li>
+                <li>Languages: <span class="interpolated"><%= character.languages.join(', ') if character.languages %></span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
