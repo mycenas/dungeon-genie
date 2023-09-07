@@ -93,41 +93,6 @@
 	padding: 10px;
 }
 
-#modal {
-	z-index: 9999;
-	height: auto;
-	width: 400px;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	background-color: rgb(147, 147, 147);
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-	position: fixed;
-	display: none;
-}
-
-.modal-content {
-	padding: 20px;
-	text-align: center;
-	background-color: black;
-}
-
-.close-button {
-	background-color: #e74c3c;
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}
-
-.close-button:hover {
-	background-color: #c0392b;
-}
-
 /* Log in Form*/
 
 .form-inputs {
@@ -164,12 +129,12 @@
 /* Character Creation Hover */
 .form-hover-info {
 	min-width: 400px;
-	max-width: 500px;
+	max-width: 1000px;
 	display: none;
-	position: absolute;
+	position: static;
 	border-radius: 15px;
-	top: 0;
-	left: 100%;
+	left: 25%;
+  bottom: 12%;
 	backdrop-filter: blur(16px) saturate(180%);
 	-webkit-backdrop-filter: blur(16px) saturate(180%);
 	background-color: #1a2038;
@@ -183,3 +148,23 @@
 	overflow-wrap: break-word;
 	overflow-y: auto;
 }
+
+.race-button:hover + .form-hover-info {
+  display: block;
+  border-radius: 15px;
+  z-index: 1;
+ }
+
+.race-button:hover + .form-hover-info strong{
+  color:#b3a4ff
+ }
+
+.character-class-button:hover + .form-hover-info {
+  display: block;
+  border-radius: 15px;
+  z-index: 1;
+ }
+
+ .character-class-button:hover + .form-hover-info strong {
+  color:#00fdf0
+ }

@@ -44,6 +44,16 @@
           <%= f.label :race %>
           <% Race.all.each do |r| %>
             <button type="button" class="race-button glass-button-char" data-id="<%= r.id %>"><%= r.name %></button>
+            <div class="form-hover-info">
+               <h2> <%= r.name %> </h2>
+               <p><%= r.description %></p>
+               <strong> Ability bonuses:</strong>
+               <p><%= r.ability_bonuses %></p>
+               <strong> Traits:</strong>
+               <p><%= r.traits %></p>
+               <strong> Languages:</strong>
+               <p><%= r.languages %></p>
+            </div>
           <% end %>
           <%= f.hidden_field :race_id, id: "hidden_race_id" %>
         </div>
@@ -52,6 +62,16 @@
           <%= f.label :character_class %>
           <% CharacterClass.all.each do |c| %>
             <button type="button" class="character-class-button glass-button-char" data-id="<%= c.id %>"><%= c.name %></button>
+              <div class="form-hover-info">
+                <h2> <%= c.name %> </h2>
+                <p><%= c.description %></p>
+                <strong> Hit die:</strong>
+                <p><%= c.hit_die %></p>
+                <strong> Primary ability:</strong>
+                <p><%= c.primary_ability %></p>
+                <strong> Spellcasting ability:</strong>
+                <p><%= c.spellcasting_ability %></p>
+              </div>
           <% end %>
           <%= f.hidden_field :character_class_id, id: "hidden_character_class_id" %>
         </div>
