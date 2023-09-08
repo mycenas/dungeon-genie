@@ -1,98 +1,107 @@
-<div class="new-character-container">
-      <div>Let The Dice Decide Your One True Name
-        <form>
-          <select id ='race' name="race">
-          <option value="elven">Elven</option>
-          <option value="dwarven">Dwarven</option>
-          <option value="dragonborn">Dragonborn</option>
-          <option value="tiefling">Tiefling</option>
-          </select>
-          <select id='class' name="class">
-          <option value="fighter">Fighter</option>
-          <option value="warlock">Warlock</option>
-          <option value="cleric">Cleric</option>
-          <option value="druid">Druid</option>
-          </select>
-          </form>
-          <button id ='submit'><i class="fa-solid fa-dice-d20 fa-shake fa-xl" style="color: #9900ff;"></i></button>
-          <div id='nameArea'>
-          </div>
-      </div>
-</div>
-
-<div class="main-content">
-    <div class="new-character-form-content">
-      <%= form_with(model: @character, local: true, html: { class: "new-character-form" }) do |f| %>
-
-        <% if @character.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
-            <ul>
-            <% @character.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class="form-field">
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-        </div>
-
-        <div class="form-field race-class-container">
-          <%= f.label :race %>
-          <% Race.all.each do |r| %>
-            <button type="button" class="race-button glass-button-char" data-id="<%= r.id %>"><%= r.name %></button>
-            <div class="form-hover-info">
-               <h2> <%= r.name %> </h2>
-               <p><%= r.description %></p>
-               <strong> Ability bonuses:</strong>
-               <p><%= r.ability_bonuses %></p>
-               <strong> Traits:</strong>
-               <p><%= r.traits %></p>
-               <strong> Languages:</strong>
-               <p><%= r.languages %></p>
-            </div>
-          <% end %>
-          <%= f.hidden_field :race_id, id: "hidden_race_id" %>
-        </div>
-
-        <div class="form-field character-class-container">
-          <%= f.label :character_class %>
-          <% CharacterClass.all.each do |c| %>
-            <button type="button" class="character-class-button glass-button-char" data-id="<%= c.id %>"><%= c.name %></button>
-              <div class="form-hover-info">
-                <h2> <%= c.name %> </h2>
-                <p><%= c.description %></p>
-                <strong> Hit die:</strong>
-                <p><%= c.hit_die %></p>
-                <strong> Primary ability:</strong>
-                <p><%= c.primary_ability %></p>
-                <strong> Spellcasting ability:</strong>
-                <p><%= c.spellcasting_ability %></p>
-              </div>
-          <% end %>
-          <%= f.hidden_field :character_class_id, id: "hidden_character_class_id" %>
-        </div>
-
-        <div class="form-field gender-container">
-          <%= f.label :gender %>
-          <button type="button" class="gender-button glass-button-char" data-id="Female">Female</button>
-          <button type="button" class="gender-button glass-button-char" data-id="Male">Male</button>
-          <button type="button" class="gender-button glass-button-char" data-id="Non-Binary">Non-Binary</button>
-          <button type="button" class="gender-button glass-button-char" data-id="Other">Other</button>
-          <%= f.hidden_field :gender, id: "hidden_gender_id" %>
-        </div>
-
-        <br>
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <% end %>
-    </div>
+<div class="name-gen-container">
+  <h3>Let The Dice Decide Your One True Name</h3>
+  <br>
+  <form class="name-gen-form"> 
+    <select id='race' name="race">
+      <option value="elven">Elven</option>
+      <option value="dwarven">Dwarven</option>
+      <option value="dragonborn">Dragonborn</option>
+      <option value="tiefling">Tiefling</option>
+    </select>
+    <select id='class' name="class">
+      <option value="fighter">Fighter</option>
+      <option value="warlock">Warlock</option>
+      <option value="cleric">Cleric</option>
+      <option value="druid">Druid</option>
+    </select>
+    <button id='submit' type="button">
+    <i class="fa-solid fa-dice-d20 fa-shake fa-xl" style="color: #9900ff;"></i>
+  </button>
+  </form>
+  <div id='nameArea'>
   </div>
 </div>
+
+<%= form_with(model: @character, local: true, html: { class: "new-character-form" }) do |f| %>
+  <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+      <ul>
+        <% @character.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h4>Name</h4>
+  <div class="form-field">
+    <h4><label for="character_name">Name</label></h4>
+    <%= f.text_field :name, id: "character_name" %>
+  </div>
+  <br>
+  <h4>Race</h4>
+  <div class="form-field race-class-container">
+    <h4><%= f.label :race %></h4>
+    <% Race.all.each do |r| %>
+      <button type="button" class="race-button glass-button-char" data-id="<%= r.id %>"><%= r.name %></button>
+      <div class="form-hover-info">
+        <h2> <%= r.name %> </h2>
+        <p><%= r.description %></p>
+        <strong> Ability bonuses:</strong>
+        <p><%= r.ability_bonuses %></p>
+        <strong> Traits:</strong>
+        <p><%= r.traits %></p>
+        <strong> Languages:</strong>
+        <p><%= r.languages %></p>
+      </div>
+    <% end %>
+    <%= f.hidden_field :race_id, id: "hidden_race_id" %>
+  </div>
+  <br>
+  <h4>Class</h4>
+  <div class="form-field character-class-container">
+    <h4><%= f.label :character_class %></h3>
+    <% CharacterClass.all.each do |c| %>
+      <button type="button" class="character-class-button glass-button-char" data-id="<%= c.id %>"><%= c.name %></button>
+      <div class="form-hover-info">
+        <h2><%= c.name %></h2>
+        <p><%= c.description %></p>
+        <div class="ability-info">
+          <div class="ability-section">
+            <strong>Hit die:</strong>
+            <p><%= c.hit_die %></p>
+          </div>
+          <div class="ability-section">
+            <strong>Primary ability:</strong>
+            <p><%= c.primary_ability %></p>
+          </div>
+          <div class="ability-section">
+            <strong>Spellcasting ability:</strong>
+            <p><%= c.spellcasting_ability %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= f.hidden_field :character_class_id, id: "hidden_character_class_id" %>
+  </div>
+  <br>
+  <h4>Gender</h4>
+  <div class="form-field gender-container">
+    <h4><%= f.label :gender %></h4>
+    <button type="button" class="gender-button glass-button-char" data-id="Female">Female</button>
+    <button type="button" class="gender-button glass-button-char" data-id="Male">Male</button>
+    <button type="button" class="gender-button glass-button-char" data-id="Non-Binary">Non-Binary</button>
+    <button type="button" class="gender-button glass-button-char" data-id="Other">Other</button>
+    <%= f.hidden_field :gender, id: "hidden_gender_id" %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= f.submit "Create Character", class: "glass-button-select", style: "width: 200px;" %>
+  </div>
+<% end %>
+
 
 <script>
 console.log('start');
