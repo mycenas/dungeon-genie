@@ -31,6 +31,13 @@ h3 {
 	text-transform: uppercase;
 }
 
+h4 {
+	text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+	font-size: 14px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
 .home-container {
 	display: flex;
 	flex-direction: column;
@@ -52,4 +59,12 @@ h3 {
 	padding: 5px 10px;
 	border-radius: 5px;
 	color: #1a1a1a;
+}
+
+.form-field h4 {
+	display: inline-block;
+}
+
+.form-field button {
+	display: block;
 }
