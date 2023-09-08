@@ -56,4 +56,15 @@
 	margin: auto;
 	padding: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(17, 25, 40, 0.75);
+	border-radius: 15px;
+}
+
+.login-container a {
+	font-size: 14px;
+	color: #c2c9e7;
+	text-decoration: none;
+	box-shadow: 0 0 40px #01051b;
 }

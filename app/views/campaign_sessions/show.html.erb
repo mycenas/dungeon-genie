@@ -3,14 +3,14 @@
     <div class="sidebar-item">
       <%= image_tag @campaign.campaign_option.image_url, class: "campaign-option-image" %>
       <div class="hover-info">
-      <strong>Campaign: <%= @campaign.campaign_option.name %></strong><br>
+      <h5>Campaign: <%= @campaign.campaign_option.name %></h5>
       <p><%= @campaign.campaign_option.description %></p>
       </div>
     </div>
     <div class="sidebar-item">
       <%= image_tag @campaign.character.image_path, class: "profile-pic-sidebar" %>
       <div class="char-hover-info">
-      <strong>Character Details:</strong><br>
+      <h5>Character</h5>
       <strong>Name:</strong> <%= @campaign.character.name %><br>
       <strong>Level:</strong> <%= @campaign.character.level %><br>
       <strong>Race:</strong> <%= @campaign.character.race.name %><br>
@@ -21,7 +21,7 @@
     <div class="sidebar-item">
       <%= image_tag 'equipment-bag.png', class: 'equipment-icon' %>
       <div class="char-hover-info">
-        <strong>Equipment:</strong><br>
+        <h5>Equipment</h5>
         <ul>
           <% @campaign.character.equipment.each do |item| %>
             <li><%= item %></li>
