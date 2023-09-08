@@ -200,7 +200,14 @@ submitButton.addEventListener('click', function () {
     epithet = druidEpithet[randomIntFromInterval(1, druidEpithet.length) - 1];
   }
 
-  let myName = title + ' ' + beginningName + middleName + endName + ' ' + epithet;
+  let myName = title + ' ' + beginningName + middleName + endName;
+
+  if (epithet.startsWith(',')) {
+    myName += epithet; 
+  } else {
+    myName += ' ' + epithet; 
+  }
+
   let fantasyName = document.createElement('li');
   fantasyName.textContent = myName;
 

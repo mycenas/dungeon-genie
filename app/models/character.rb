@@ -15,29 +15,32 @@ class Character < ApplicationRecord
   validates :name, :level, :race, :character_class, :max_hp, :current_hp, :armor_class, :equipment, presence: true
 
     def set_image_path
-        image_lookup = {
-            "male_tiefling_warlock" => "male_tiefling_warlock.png",
-            "female_tiefling_warlock" => "female_tiefling_warlock.png",
+      image_lookup = {
+        "male_tiefling_warlock" => "male_tiefling_warlock.png",
+        "female_tiefling_warlock" => "female_tiefling_warlock.png",
+        "male_woodelf_druid" => "male_woodelf_druid.png",
+        "female_woodelf_druid" => "female_woodelf_druid.png",
+        "male_dragonborn_fighter" => "male_dragonborn_fighter.png",
+        "female_dragonborn_fighter" => "female_dragonborn_fighter.png",
+        "male_hilldwarf_cleric" => "male_hilldwarf_cleric.png",
+        "female_hilldwarf_cleric" => "female_hilldwarf_cleric.png",
+        "male_dragonborn_druid" => "male_dragonborn_druid.png",
+        "female_dragonborn_druid" => "female_dragonborn_druid.png",
+        "male_woodelf_fighter" => "male_woodelf_fighter.png",
+        "female_woodelf_fighter" => "female_woodelf_fighter.png",
+        "male_woodelf_cleric" => "male_woodelf_cleric.png",
+        "female_woodelf_cleric" => "female_woodelf_cleric.png"
+      }
 
-            "male_woodelf_druid" => "male_woodelf_druid.png",
-            "female_woodelf_druid" => "female_woodelf_druid.png",
-
-            "male_dragonborn_fighter" => "male_dragonborn_fighter.png",
-            "female_dragonborn_fighter" => "female_dragonborn_fighter.png",
-
-            "male_hilldwarf_cleric" => "male_hilldwarf_cleric.png",
-            "female_hilldwarf_cleric" => "female_hilldwarf_cleric.png",
-        }
-
-        key_base = "#{self.race.name.downcase.gsub(' ', '')}_#{self.character_class.name.downcase}"
-
-        gender_key = self.gender.downcase
-        gender_key = ["male", "female"].sample if gender_key == 'other'
-
-        full_key = "#{gender_key}_#{key_base}"
-
-        self.image_path = image_lookup[full_key]
+      key_base = "#{self.race.name.downcase.gsub(' ', '')}_#{self.character_class.name.downcase}"
+      gender_key = self.gender.downcase
+      gender_key = ["male", "female"].sample if gender_key == 'other'
+      
+      full_key = "#{gender_key}_#{key_base}"
+      
+      self.image_path = image_lookup[full_key]
     end
+
 
   private
 
