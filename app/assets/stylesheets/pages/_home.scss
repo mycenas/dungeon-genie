@@ -1,77 +1,77 @@
 // Specific CSS for your home-page
 html,
 body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	background-image: linear-gradient(
-			to bottom,
-			rgba(0, 0, 0, 0.4),
-			rgba(0, 0, 0, 0.2)
-		),
-		url('https://images.unsplash.com/photo-1507275016429-544fc0875edd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-	background-position: center;
-	background-attachment: fixed;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("https://images.unsplash.com/photo-1507275016429-544fc0875edd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80");
+  background-position: center;
+  background-attachment: fixed;
 }
 
 h2 {
-	text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
-	font-size: 24px;
-	letter-spacing: 4px;
-	text-transform: uppercase;
+  text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+  font-size: 24px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 h3 {
-	text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
-	font-size: 16px;
-	letter-spacing: 4px;
-	text-transform: uppercase;
+  text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+  font-size: 16px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 h4 {
-	text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
-	font-size: 14px;
-	letter-spacing: 4px;
-	text-transform: uppercase;
+  text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 h5 {
-	text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
-	font-size: 14px;
-	letter-spacing: 4px;
-	text-transform: uppercase;
+  text-shadow: 0 0 10px #c2c9e7, 0 0 20px #c2c9e7;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 .home-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
 }
 
 .home-image {
-	width: 800px;
-	height: 800px;
-	display: block;
+  width: 650px;
+  height: 650px;
+  display: block;
 }
 
 .home-footer {
-	position: fixed;
-	right: 10px;
-	bottom: 10px;
-	padding: 5px 10px;
-	border-radius: 5px;
-	color: #1a1a1a;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #1a1a1a;
 }
 
 .form-field h4 {
-	display: inline-block;
+  display: inline-block;
 }
 
 .form-field button {
-	display: block;
+  display: block;
 }
