@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
 
     # Fetch existing messages from the database
     existing_messages = @campaign_session.messages.order(:created_at).map do |msg|
-      { role: msg.user == current_user ? "user" : "system", content: msg.content }
+      { role: msg.user_id.nil? ? "assistant" : "user", content: msg.content }
     end
 
     if @message.save
@@ -51,7 +51,7 @@ class MessagesController < ApplicationController
 
       ai_message = Message.new(content: generated_text)
       ai_message.campaign_session = @campaign_session
-      ai_message.user_id = 5 # Dungeon Genie user ID
+      ai_message.user_id = nil
       ai_message.save
 
       CampaignSessionChannel.broadcast_to(
