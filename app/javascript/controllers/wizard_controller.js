@@ -86,7 +86,7 @@ export default class extends Controller {
       this.animationFrameId = requestAnimationFrame(animate);
     };
 
-    renderer.setAnimationLoop(animate);
+    animate();
 
     // TRIGGER
     this.resizeListener = () => {
