@@ -15,6 +15,8 @@ class Character < ApplicationRecord
   validates :name, :level, :race, :character_class, :max_hp, :current_hp, :armor_class, :equipment, presence: true
 
     def set_image_path
+      return unless self.race && self.character_class && self.gender.present?
+
       image_lookup = {
         "male_tiefling_warlock" => "male_tiefling_warlock.png",
         "female_tiefling_warlock" => "female_tiefling_warlock.png",
@@ -45,8 +47,7 @@ class Character < ApplicationRecord
   private
 
   def set_class_defaults
-
-    stats_values = {}
+    return unless self.character_class
 
     case self.character_class.name.downcase
     when 'cleric'
@@ -76,6 +77,8 @@ class Character < ApplicationRecord
   end
 
   def stats_defaults
+    return {} unless self.character_class
+
     case self.character_class.name.downcase
 
     when 'cleric'
